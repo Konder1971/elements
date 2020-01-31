@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <title>
+ jQuery-плагин для стилизации элементов html-форм (input[type=checkbox],
+ input[type=radio], input[type=file], select) » Свобода слова 
+вебмастерского</title> <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--> <link rel="stylesheet" href="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/style.css" media="screen"> <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://dimox.name/feed/"> <link rel="canonical" href="http://dimox.name/jquery-form-styler/"> <script type="text/javascript" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/jquery.js"></script> <script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/md5.js" type="text/javascript"></script> <script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/a" type="text/javascript"></script> <meta name="keywords" content="CSS, Плагин, jQuery, select, radio, checkbox, file"> <script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/scripts.js"></script> <script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/rotaban.js" async="" type="text/javascript"></script><script async="async" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/2d33af5d9cc743479a2b7b7d4fe70ae5.js" id="_rotaban_js_2d33af5d9cc743479a2b7b7d4fe70ae5" type="text/javascript"></script><style type="text/css">div.rotaban_186135{width:100%;display:block;}div.rotaban_186135 a{width:125px;}div.rotaban_186135 a img{padding:0;}div.rotaban_186135 a em{font-style:normal;}html>body div.rotaban_186135 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0 4px 10px 0;text-align:center;text-decoration:none;overflow:hidden;}html>body div.rotaban_186135 img{border:0;clear:right;}html>body div.rotaban_186135 a.rb_adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}html>body div.rotaban_186135 a.rb_adhere:hover{border:1px solid #999;background:#ddd;color:#333;}html>body div.rotaban_186135 a{display:inline-block;position:relative;vertical-align:top;}div.rotaban_186135 a.rb_adhere{width:125px;height:125px;line-height:1000%;}div.rotaban_186135 a.rb_adhere{width:123px;height:123px;border:1px solid #ccc;background:#e7e7e7;color:#444;}div.rotaban_186135 a.rb_adhere:hover{border:1px solid #999;background:#ddd;color:#222;}div.rotaban_186135 img.s{height:0;width:0;}</style><script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/0ilgF2-2D8i40000Zh7RknO5XPfW29u7bgH0P-wwy3CV6ah6KZS7aRQTPQ43auC9" type="text/javascript"></script></head> <body> <div id="wrapper"> <header> <a href="http://dimox.name/" id="logo">Свобода слова вебмастерского <span>CSS-верстка, веб-мастеринг, интернет-технологии, манимейкинг</span></a> <nav> <ul id="nav"> <li><a href="http://dimox.name/">Главная</a></li> <li><a href="http://dimox.name/author/">Об авторе</a></li> <li><a href="http://dimox.name/about/">О блоге</a></li> <li><a href="http://dimox.name/sitemap/">Карта сайта</a></li> <li><a href="http://dimox.name/contacts/">Контакты</a></li> <li><a href="http://dimox.name/markup/" title="Услуги верстки: html верстка, верстка шаблонов для WordPress">Верстаю</a></li> </ul> </nav> </header> <section> <div id="content"> <div id="text"> <article class="post"> <h1>jQuery-плагин для стилизации элементов html-форм (input[type=checkbox], input[type=radio], input[type=file], select)</h1> <div class="meta"> <span class="date" title="6 месяцев 6 дней назад">9 октября 2012 г.</span> —
+ 						<span xmlns:v="http://rdf.data-vocabulary.org/#"> <span typeof="v:Breadcrumb"><a href="http://dimox.name/" rel="v:url" property="v:title">Главная</a> –</span> <span typeof="v:Breadcrumb"><a href="http://dimox.name/category/jquery/" rel="v:url" property="v:title">jQuery</a></span> </span> </div><!-- .meta --> <div class="entry"> <p><img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/jquery.png" alt="Плагин jQuery Form Styler" class="aligncenter noborder" height="172" width="798"></p> <p>В
+ данном плагине я объединил 3 своих предыдущих jQuery-плагина, плюс 
+добавил возможность стилизации полей для отправки файлов. Таким образом,
+ он позволяет стилизовать с помощью CSS следующие html-элементы:</p> <ul> <li>раскрывающийся список <tt>&lt;select&gt;</tt>;</li> <li>флажок <tt>&lt;input type="checkbox"&gt;</tt>;</li> <li>переключатель <tt>&lt;input type="radio"&gt;</tt>;</li> <li>поле для выбора файла <tt>&lt;input type="file"&gt;</tt>.</li> </ul> <h2>Демонстрация работы плагина</h2> <p>Живые примеры можно посмотреть на <a href="http://dimox.github.com/formStyler/demo/">отдельной странице</a>. Стоит заметить, что при оформлении элементов форм я не использовал ни одного изображения.</p> <h2>Достоинства</h2> <ul> <li> <strong>Общее:</strong><p></p> <ul> <li>Простота оформления с помощью CSS.</li> <li>При отключенном JavaScript отображаются стандартные элементы форм, т.е. их работоспособность не теряется.</li> <li>Псевдоэлементы выводятся внутристрочно, т.е. повторяют свойство стандартных элементов.</li> <li>Поддерживает работу с динамически добавляемыми/изменяемыми элементами.</li> <li>Поддерживает атрибуты <tt>checked</tt>, <tt>selected</tt>, <tt>disabled</tt>.</li> <li>Умеет "ловить" нажатие клавиши Tab и позволяет переключать элементы с клавиатуры.</li> <li>CSS-классы и идентификаторы, а также атрибуты <tt>data-*</tt>, указанные у оригинальных элементов форм, передаются в соответствующие псевдоэлементы (<tt>id</tt> передается с суффиксом, чтобы избежать дублирования).</li> <li>Небольшой размер скрипта, минимизированный вариант занимает <strong>10 килобайт</strong>.</li> <li>Кроссбраузерность.</li> </ul> </li> <li> <p> <strong>Для селектов:</strong></p> <ul> <li>Поддерживает атрибут <tt>multiple</tt>, т.е. позволяет выбирать несколько пунктов (мультиселект).</li> <li>Поддерживает группировку элементов списка в селекте (тег <tt>&lt;optgroup&gt;</tt>).</li> <li>Позволяет задать максимальную высоту для выпадающего списка (CSS-свойством <tt>max-height</tt>, либо через опцию <tt>selectVisibleOptions</tt>).</li> <li>Поддерживает "умное позиционирование", т.е. не уходит за видимую часть страницы при открытии списка.</li> <li>Автоматически подстраивает ширину, если она не указана.</li> <li>Поддерживает прокрутку колесом мыши.</li> </ul> </li> </ul> <h2>Скачать</h2> <div class="download"> <h3><a href="https://github.com/Dimox/formStyler/archive/master.zip">Плагин "jQuery Form Styler"</a></h3> <p><strong>Версия:</strong> 1.3.4 | <strong>Последнее обновление:</strong> 03.03.2013 | <a href="https://github.com/Dimox/formStyler/">Страница на GitHub</a></p> </div> <h2>Подключение плагина</h2> <ol> <li> <p>Для работы плагина <strong>необходимо использовать jQuery не ниже версии 1.7.0.</strong> Если он у вас еще не подключен, то добавьте следующую строку перед тегом <tt>&lt;/head&gt;</tt>:</p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span></div></div> </li> <li> <p>Сразу после jQuery подключите файл со скриптом:</p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"ПУТЬ_К_ФАЙЛУ/jquery.formstyler.min.js"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span></div></div> </li> <li> <p>Теперь задействуйте плагин, указав теги, которые нужно стилизовать (этот код вставьте после вышеуказанных файлов):</p> <div class="codecolorer-container javascript " style="overflow:auto;white-space:nowrap;width:100%"><div class="javascript codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sy0">&lt;</span>script<span class="sy0">&gt;</span><br> <span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span><br> $<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br> <br> &nbsp; $<span class="br0">(</span><span class="st0">'input, select'</span><span class="br0">)</span>.<span class="me1">styler</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br> <br> <span class="br0">}</span><span class="br0">)</span><br> <span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span><br> <span class="sy0">&lt;/</span>script<span class="sy0">&gt;</span></div></div> </li> <li> <p>При динамическом изменении элементов формы необходимо запустить триггер <tt>refresh</tt>, например:</p> <div class="codecolorer-container javascript " style="overflow:auto;white-space:nowrap;width:100%"><div class="javascript codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span><br> $<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br> <br> &nbsp; $<span class="br0">(</span><span class="st0">'button'</span><span class="br0">)</span>.<span class="me1">click</span><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>e<span class="br0">)</span> <span class="br0">{</span><br> &nbsp; &nbsp; e.<span class="me1">preventDefault</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br> &nbsp; &nbsp; <span class="co2">/* делаем чекбокс неактивным */</span><br> &nbsp; &nbsp; $<span class="br0">(</span><span class="st0">'input:checkbox'</span><span class="br0">)</span>.<span class="me1">attr</span><span class="br0">(</span><span class="st0">'disabled'</span><span class="sy0">,</span> <span class="kw2">true</span><span class="br0">)</span><br> &nbsp; &nbsp; &nbsp; <span class="co2">/* обновляем состояние псевдочекбокса */</span><br> &nbsp; &nbsp; &nbsp; .<span class="me1">trigger</span><span class="br0">(</span><span class="st0">'refresh'</span><span class="br0">)</span><span class="sy0">;</span><br> &nbsp; <span class="br0">}</span><span class="br0">)</span><br> <br> <span class="br0">}</span><span class="br0">)</span><br> <span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span></div></div> </li> </ol> <h2>Опции плагина</h2> <table> <tbody><tr> <th>Ключ</th> <th>Значение по умолчанию</th> <th>Описание</th> </tr> <tr> <td><tt>idSuffix</tt></td> <td><tt>-styler</tt></td> <td>суффикс к атрибуту <tt>id</tt>, передаваемому от стилизуемого элемента</td> </tr> <tr> <td><tt>browseText</tt></td> <td><tt>Выбрать</tt></td> <td>текст кнопки у поля для выбора файла</td> </tr> <tr> <td><tt>selectVisibleOptions</tt></td> <td><tt>0</tt></td> <td>количество отображаемых пунктов списка в простом селекте без прокрутки</td> </tr> <tr> <td><tt>singleSelectzIndex</tt></td> <td><tt>100</tt></td> <td>уровень слоя с псевдоселектом</td> </tr> <tr> <td><tt>selectSmartPositioning</tt></td> <td><tt>true</tt></td> <td>использовать умное позиционирование для выпадающего списка селекта (<tt>true</tt> - да, <tt>false</tt> - нет)</td> </tr> </tbody></table> <p>Пример использования:</p> <div class="codecolorer-container javascript " style="overflow:auto;white-space:nowrap;width:100%"><div class="javascript codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span>$<span class="br0">)</span> <span class="br0">{</span><br> $<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br> <br> &nbsp; $<span class="br0">(</span><span class="st0">'input, select'</span><span class="br0">)</span>.<span class="me1">styler</span><span class="br0">(</span><span class="br0">{</span><br> &nbsp; &nbsp; browseText<span class="sy0">:</span> <span class="st0">'Обзор...'</span><span class="sy0">,</span><br> &nbsp; &nbsp; singleSelectzIndex<span class="sy0">:</span> <span class="st0">'999'</span><br> &nbsp; <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span><br> <br> <span class="br0">}</span><span class="br0">)</span><br> <span class="br0">}</span><span class="br0">)</span><span class="br0">(</span>jQuery<span class="br0">)</span></div></div> <h2>Структура HTML-кода до и после инициализации плагина</h2> <div style="display: block;" class="title spoilerTitle"><span>Чекбокс</span></div><div style="display: none;" class="spoiler js">  <p> <strong>До:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">input</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"checkbox"</span> <span class="sy0">/</span>&gt;</span></div></div> <p><strong>После:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">input</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"checkbox"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"position: absolute; left: -9999px"</span> <span class="sy0">/</span>&gt;</span><br> <span class="sc2">&lt;<span class="kw2">span</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"jq-checkbox"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"display: inline-block"</span>&gt;&lt;<span class="kw2">span</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;</span></div></div> </div> <div style="display: block;" class="title spoilerTitle"><span>Радиокнопка</span></div><div style="display: none;" class="spoiler js">  <p> <strong>До:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">input</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"radio"</span> <span class="sy0">/</span>&gt;</span></div></div> <p><strong>После:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">input</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"radio"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"position: absolute; left: -9999px;"</span> <span class="sy0">/</span>&gt;</span><br> <span class="sc2">&lt;<span class="kw2">span</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"jq-radio"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"display: inline-block"</span>&gt;&lt;<span class="kw2">span</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;</span></div></div> </div> <div style="display: block;" class="title spoilerTitle"><span>Поле для выбора файла</span></div><div style="display: none;" class="spoiler js">  <p> <strong>До:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">input</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"file"</span> <span class="sy0">/</span>&gt;</span></div></div> <p><strong>После:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">span</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"jq-file"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"display: inline-block; position: relative; overflow: hidden"</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">div</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"name"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"float: left; white-space: nowrap"</span><span class="sy0">/</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">div</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"browse"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"float: left"</span>&gt;</span>Выбрать<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">div</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">input</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"file"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"position: absolute; top: -50%; right: -50%; font-size: 200px; opacity: 0;"</span><span class="sy0">/</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;</span></div></div> </div> <div style="display: block;" class="title spoilerTitle"><span>Селект (простой)</span></div><div style="display: none;" class="spoiler js">  <p> <strong>До:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">select</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 1<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 2<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 3<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">select</span>&gt;</span></div></div> <p><strong>После:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">select</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"position: absolute; left: -9999px"</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 1<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 2<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 3<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">select</span>&gt;</span><br> <span class="sc2">&lt;<span class="kw2">span</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"jq-selectbox jqselect"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"display: inline-block; position: relative; z-index:1000"</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">div</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"select"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"float: left"</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">div</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"text"</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">div</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">b</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"trigger"</span>&gt;&lt;<span class="kw2">i</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"arrow"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">i</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">b</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">div</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">div</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"dropdown"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"position: absolute; left: 0; overflow-y: auto; overflow-x: hidden; display: none"</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">ul</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"list-style: none"</span>&gt;</span><br> &nbsp; &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"selected"</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 1<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 2<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 3<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">ul</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">div</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;</span></div></div> </div> <div style="display: block;" class="title spoilerTitle"><span>Селект (множественный)</span></div><div style="display: none;" class="spoiler js">  <p> <strong>До:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">select</span> <span class="kw3">multiple</span><span class="sy0">=</span><span class="st0">"multiple"</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 1<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 2<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 3<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">select</span>&gt;</span></div></div> <p><strong>После:</strong></p> <div class="codecolorer-container html4strict " style="overflow:auto;white-space:nowrap;width:100%"><div class="html4strict codecolorer" style="font-family:Monaco,Lucida Console,monospace"><span class="sc2">&lt;<span class="kw2">select</span> <span class="kw3">multiple</span><span class="sy0">=</span><span class="st0">"multiple"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"position: absolute; left: -9999px;"</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 1<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 2<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">option</span>&gt;</span>Пункт 3<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">option</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">select</span>&gt;</span><br> <span class="sc2">&lt;<span class="kw2">span</span> <span class="kw3">class</span><span class="sy0">=</span><span class="st0">"jq-select-multiple jqselect"</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"display: inline-block"</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="kw2">ul</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>-- Выберите --<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 1<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 2<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 3<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 4<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; &nbsp; <span class="sc2">&lt;<span class="kw2">li</span>&gt;</span>Пункт 5<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">li</span>&gt;</span><br> &nbsp; <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">ul</span>&gt;</span><br> <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">span</span>&gt;</span></div></div> </div> <h2>CSS-селекторы, используемые для оформления</h2> <table> <tbody><tr> <th>Чекбокс</th> <th></th> </tr> <tr> <td style="width:320px"><tt>.jq-checkbox</tt></td> <td>чекбокс по умолчанию</td> </tr> <tr> <td><tt>.jq-checkbox.checked</tt></td> <td>выбранный чекбокс</td> </tr> <tr> <td><tt>.jq-checkbox.disabled</tt></td> <td>неактивный (недоступный для выбора) чекбокс</td> </tr> <tr> <td><tt>.jq-checkbox.focused</tt></td> <td>фокус на чекбоксе, когда нажата клавиша Tab</td> </tr> <tr> <td><tt>.jq-checkbox span</tt></td> <td>дополнительный вложенный тег</td> </tr> <tr> <th>Радиокнопка</th> <th></th> </tr> <tr> <td><tt>.jq-radio</tt></td> <td>радиокнопка по умолчанию</td> </tr> <tr> <td><tt>.jq-radio.checked</tt></td> <td>выбранная радиокнопка</td> </tr> <tr> <td><tt>.jq-radio.disabled</tt></td> <td>неактивная (недоступная для выбора) радиокнопка</td> </tr> <tr> <td><tt>.jq-radio.focused</tt></td> <td>фокус на радиокнопке, когда нажата клавиша Tab</td> </tr> <tr> <td><tt>.jq-radio span</tt></td> <td>дополнительный вложенный тег</td> </tr> <tr> <th>Поле для выбора файла</th> <th></th> </tr> <tr> <td><tt>.jq-file</tt></td> <td>родительский контейнер</td> </tr> <tr> <td><tt>.jq-file.focused</tt></td> <td>фокус на поле, когда нажата клавиша Tab</td> </tr> <tr> <td><tt>.jq-file.disabled</tt></td> <td>неактивное поле</td> </tr> <tr> <td><tt>.jq-file .name</tt></td> <td>поле с именем файла</td> </tr> <tr> <td><tt>.jq-file .browse</tt></td> <td>кнопка выбора файла</td> </tr> <tr> <th>Селект (простой)</th> <th></th> </tr> <tr> <td><tt>.jq-selectbox</tt></td> <td>родительский контейнер</td> </tr> <tr> <td><tt>.jq-selectbox .select</tt></td> <td>селект в свернутом состоянии</td> </tr> <tr> <td><tt>.jq-selectbox.focused .select</tt></td> <td>фокус на селекте, когда нажата клавиша Tab</td> </tr> <tr> <td><tt>.jq-selectbox.disabled .select</tt></td> <td>неактивный (недоступный для выбора) селект</td> </tr> <tr> <td><tt>.jq-selectbox .select .text</tt></td> <td>дополнительный вложенный тег для свернутого селекта</td> </tr> <tr> <td><tt>.jq-selectbox .trigger</tt></td> <td>правая часть свернутого селекта (условный переключатель)</td> </tr> <tr> <td><tt>.jq-selectbox .trigger .arrow</tt></td> <td>вложенный тег для переключателя (стрелка)</td> </tr> <tr> <td><tt>.jq-selectbox .dropdown</tt></td> <td>обертка для выпадающего списка</td> </tr> <tr> <td><tt>.jq-selectbox .dropdown ul</tt></td> <td>выпадающий список</td> </tr> <tr> <td><tt>.jq-selectbox li</tt></td> <td>пункт (опция) селекта</td> </tr> <tr> <td><tt>.jq-selectbox li.selected</tt></td> <td>выбранный пункт селекта</td> </tr> <tr> <td><tt>.jq-selectbox li.disabled</tt></td> <td>неактивный (недоступный для выбора) пункт селекта</td> </tr> <tr> <td><tt>.jq-selectbox li.optgroup</tt></td> <td>заголовок для группы пунктов</td> </tr> <tr> <td><tt>.jq-selectbox li.option</tt></td> <td>пункт списка в группе</td> </tr> <tr> <th>Селект (множественный)</th> <th></th> </tr> <tr> <td><tt>.jq-select-multiple</tt></td> <td>родительский контейнер</td> </tr> <tr> <td><tt>.jq-select-multiple.disabled</tt></td> <td>неактивный (недоступный для выбора) селект</td> </tr> <tr> <td><tt>.jq-select-multiple li</tt></td> <td>пункт (опция) селекта</td> </tr> <tr> <td><tt>.jq-select-multiple li.selected</tt></td> <td>выбранный пункт селекта</td> </tr> <tr> <td><tt>.jq-select-multiple li.disabled</tt></td> <td>неактивный (недоступный для выбора) пункт селекта</td> </tr> <tr> <td><tt>.jq-select-multiple li.optgroup</tt></td> <td>заголовок для группы пунктов</td> </tr> <tr> <td><tt>.jq-select-multiple li.option</tt></td> <td>пункт списка в группе</td> </tr> <tr> <th>Прочие элементы (только CSS)</th> <th></th> </tr> <tr> <td><tt>.styler</tt></td> <td>класс, используемый для стилизации текстовых полей и кнопок (работает независимо от плагина)</td> </tr> </tbody></table> <h2 id="log">История изменений</h2> <div style="overflow: auto; height: 365px; border: 1px dashed #CCC; padding: 5px 10px 10px"> <dl> <dt>v1.3.4 (03.03.2013)</dt> <dd> <ul> <li>Исправлено: не работало выделение в мультиселекте в Internet Explorer 8-й и ниже версиях.</li> </ul> </dd> <dt>v1.3.3 (08.02.2013)</dt> <dd> <ul> <li>Добавлена опция, позволяющая отключать умное позиционирование для выпадающего списка селекта (чтобы он раскрывался всегда вниз).</li> <li>Изменен способ скрытия оригинальной радиокнопки (ранее при отсутствии фона у родителя ее было видно).</li> <li>Исправлено: в некоторых случаях с псевдо-радиокнопки не снималось отмеченное состояние.</li> </ul> </dd> <dt>v1.3.2 (27.01.2013)</dt> <dd> <ul> <li>Добавлено: переключение селекта с клавиатуры.</li> <li>Добавлено: прокрутка до 1-го выбранного пункта в мультиселекте.</li> <li>Добавлено: в псевдоэлементы теперь передаются все <tt>data-*</tt> атрибуты, указанные у оригинальных элементов.</li> <li>Исправлено: если в одиночном селекте нет пунктов с атрибутом <tt>selected</tt>, то к первому <tt>&lt;li&gt;</tt> не добавлялся класс <tt>.selected</tt>.</li> <li>Изменено: к атрибуту <tt>id</tt>, передаваемому от стилизуемого элемента, теперь добавляется суффикс (можно указать свой через опцию).</li> <li>Изменено: уменьшен z-index по умолчанию для одиночного селекта.</li> </ul> </dd> <dt>v1.3.1 (23.01.2013)</dt> <dd> <ul> <li>Внесены изменения, необходимые для корректной работы плагина с jQuery 1.9.</li> <li>Исправлена ошибка, связанная с неправильной работой динамического изменения селектов.</li> </ul> </dd> <dt>v1.3 (17.01.2013)</dt> <dd> <ul> <li>Реализована поддержка тега <tt>&lt;optgroup&gt;</tt> в селекте.</li> </ul> </dd> <dt>v1.2.5 (15.01.2013)</dt> <dd> <ul> <li>Изменен способ эмуляции <tt>&lt;input type="file"&gt;</tt>, что позволило избавиться от двух далее описанных багов в Firefox и IE.</li> <li>Изменены названия CSS-классов у псевдоэлементов на более уникальные (соответственно, файл jquery.formstyler.css изменен).</li> <li>Изменено: опция <tt>zIndex</tt> переименована в <tt>singleSelectzIndex</tt>.</li> <li>Исправлено: в браузере Firefox обрабатывался клик по <tt>&lt;input type="file"&gt;</tt> в состоянии <tt>disabled</tt>.</li> <li>Исправлено: в браузере Internet Explorer динамически измененный <tt>&lt;input type="file"&gt;</tt> не передавал файл на сервер.</li> <li>Исправлено: у простого селекта теперь убирается фокус при переключении Tab'ом на другой элемент формы.</li> <li>Добавлено: поддержка фокуса для <tt>&lt;input type="file"&gt;</tt> при нажатии на Tab.</li> <li>Добавлено: к родительскому тегу простого селекта добавляется класс <tt>.opened</tt> при раскрытии выпадающего списка.</li> <li>Добавлено: CSS-классы, указанные для <tt>&lt;option&gt;</tt> передаются тегу <tt>&lt;li&gt;</tt> в псевдоселекте.</li> <li>Добавлено: новая опция <tt>selectVisibleOptions</tt> для селекта (см. описание выше в статье).</li> </ul> </dd> <dt>v1.2.2 (14.01.2013)</dt> <dd> <ul> <li>Исправлен баг в Firefox: если у первого пункта селекта стоял атрибут <tt>selected</tt>, то при выборе любого другого пункта передавалось значение первого.</li> </ul> </dd> <dt>v1.2.1 (09.01.2013)</dt> <dd> <ul> <li>Псевдоэлементам теперь передаются те же идентификаторы и классы, которые указаны для стилизуемых элементов форм.</li> <li>При прокрутке списка одиночного селекта страница теперь не прокручивается (ранее это работало только для мультиселекта).</li> <li>При
+ открытии селекта с длинным списком теперь сразу виден выбранный пункт 
+(ранее его могло быть не видно, и приходилось прокручивать список, чтобы
+ его найти).</li> </ul> </dd> <dt>v1.2 (26.11.2012)</dt> <dd> <ul> <li>Добавлена поддержка атрибута <tt>multiple</tt> для тега <tt>&lt;select&gt;</tt>.</li> <li>Добавлена поддержка атрибута <tt>disabled</tt> для тега <tt>&lt;input type="file"&gt;</tt>.</li> </ul> </dd> <dt>v1.1.3 (20.11.2012)</dt> <dd> <ul> <li>Решена возникающая в ряде случаев проблема с селектом в браузере Firefox при использовании атрибута <tt>selected</tt>.</li> </ul> </dd> <dt>v1.1.2 (15.10.2012)</dt> <dd> <ul> <li>Плагин теперь реагирует на применение метода <tt>change</tt> у тега <tt>&lt;input type="radio"&gt;</tt>.</li> <li>Добавлена опция <tt>zIndex</tt>.</li> </ul> </dd> <dt>v1.1 (13.10.2012)</dt> <dd> <ul> <li>Добавлена поддержка атрибута <tt>disabled</tt> для тега <tt>&lt;select&gt;</tt>.</li> </ul> </dd> <dt>v1.0 (09.10.2012)</dt> <dd> <ul> <li>Первая версия плагина.</li> </ul> </dd> </dl> </div> </div> <div class="share42init" data-url="http://dimox.name/jquery-form-styler/" data-title="jQuery-плагин для стилизации элементов html-форм (input[type=checkbox], input[type=radio], input[type=file], select)" data-top1="285" data-top2="14" data-margin="-84"><div id="share42" style="width: 32px; position: fixed; z-index: 9999; margin-left: -84px; top: 285px;"><div class="s42s"><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -0px 0 no-repeat" href="#" onclick="window.open('https://plus.google.com/share?url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0');return false" title="Поделиться в Google+" target="_blank"></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -32px 0 no-repeat" href="#" data-count="twi" onclick="window.open('https://twitter.com/intent/tweet?text=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0');return false" title="Добавить в Twitter" target="_blank"><span>38</span></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -64px 0 no-repeat" href="#" data-count="fb" onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;p[title]=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;p[summary]=&amp;p[images][0]=', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0');return false" title="Поделиться в Facebook" target="_blank"><span>6</span></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -96px 0 no-repeat" href="#" data-count="vk" onclick="window.open('http://vk.com/share.php?url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;image=&amp;description=', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0');return false" title="Поделиться В Контакте" target="_blank"><span>5</span></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -128px 0 no-repeat" href="#" data-count="odkl" onclick="window.open('http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st._surl=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0');return false" title="Добавить в Одноклассники" target="_blank"><span>0</span></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -160px 0 no-repeat" href="#" data-count="mail" onclick="window.open('http://connect.mail.ru/share?url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;description=&amp;imageurl=', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=440, toolbar=0, status=0');return false" title="Поделиться в Моем Мире@Mail.Ru" target="_blank"><span>0</span></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -192px 0 no-repeat" href="http://my.ya.ru/posts_add_link.xml?URL=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select%29&amp;body=" data-count="ya" title="Поделиться в Я.ру" target="_blank"><span>0</span></a><a href="#" class="s42a" style="display:block;height:10px;margin:-2px 0 4px;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -480px 50%;outline:none"></a></div><div style="display: none;" class="s42s"><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -224px 0 no-repeat" href="http://www.livejournal.com/update.bml?event=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;subject=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select%29" title="Опубликовать в LiveJournal" target="_blank"></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -256px 0 no-repeat" href="" onclick="return fav(this);" title="Сохранить в избранное браузера" target="_blank"></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -288px 0 no-repeat" href="#" data-count="dlcs" onclick="window.open('http://delicious.com/save?url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;note=', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=710, height=660, toolbar=0, status=0');return false" title="Сохранить закладку в Delicious" target="_blank"><span>5</span></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -320px 0 no-repeat" href="https://www.evernote.com/clip.action?url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select%29" title="Добавить в Evernote" target="_blank"></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -352px 0 no-repeat" href="#" onclick="window.open('http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;title=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;annotation=', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=500, toolbar=0, status=0');return false" title="Сохранить закладку в Google" target="_blank"></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -384px 0 no-repeat" href="#" onclick="window.open('http://zakladki.yandex.ru/newlink.xml?url=http%3A%2F%2Fdimox.name%2Fjquery-form-styler%2F&amp;name=jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20(input%5Btype%3Dcheckbox%5D%2C%20input%5Btype%3Dradio%5D%2C%20input%5Btype%3Dfile%5D%2C%20select)&amp;descr=', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=550, height=500, toolbar=0, status=0');return false" title="Добавить в Яндекс.Закладки" target="_blank"></a><a rel="nofollow" style="display:block;width:32px;height:32px;margin:0 0 6px;padding:0;outline:none;background:url(http://dimox.name/wp-content/themes/dimox.name/share42/icons.png) -416px 0 no-repeat" href="http://share42.com/" title="Share42.com - Бесплатный скрипт кнопок социальных закладок и сетей" target="_blank"></a></div></div><style>#share42 a.s42a.t{background-position: -448px 50% !important}</style></div> <script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/share42.js"></script> <div class="info"><span class="ptags">Теги: <a href="http://dimox.name/tag/checkbox/" rel="tag">checkbox</a>, <a href="http://dimox.name/tag/css/" rel="tag">CSS</a>, <a href="http://dimox.name/tag/file/" rel="tag">file</a>, <a href="http://dimox.name/tag/jquery/" rel="tag">jQuery</a>, <a href="http://dimox.name/tag/radio/" rel="tag">radio</a>, <a href="http://dimox.name/tag/select/" rel="tag">select</a>, <a href="http://dimox.name/tag/plagin/" rel="tag">Плагин</a></span> автор: Dimox | рубрика <a href="http://dimox.name/category/jquery/" title="Просмотреть все записи в jQuery" rel="category tag">jQuery</a></div> </article> <div class="context"> <div id="ya_direct"><div id="ya_partner_1" style="background:transparent none no-repeat scroll 0 0 !important;border:none !important;border-radius:none !important;border-spacing:0 !important;border-collapse:collapse !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important;clear:none !important;clip:auto !important;color:inherit !important;cursor:auto !important;empty-cells:show !important;float:none !important;font:inherit !important;height:auto !important;letter-spacing:normal !important;line-height:normal !important;margin:0 !important;max-height:none !important;max-width:none !important;min-height:0 !important;min-width:0 !important;outline:none !important;overflow:visible !important;padding:0 !important;position:static !important;table-layout:auto !important;text-align:left !important;text-decoration:none !important;text-indent:0 !important;text-transform:none !important;vertical-align:baseline !important;visibility:visible !important;white-space:normal !important;width:auto !important;word-spacing:normal !important;z-index:auto !important;display:block !important;"><yatag class="ya-partner_ads_inner-up ya-partner_theme_flat_inner  ya-partner ya-partner_type_flat ya-partner_type_flat-simple"><yatag class="ya-partner__ads"><yatag class="ya-partner__ads-l"><a href="http://direct.yandex.ru/?partner" class="ya-partner__ads-link ya-partner__ads-link-l" target="_blank">Яндекс.Директ</a></yatag><yatag class="ya-partner__ads-r"><a href="http://direct.yandex.ru/search?from=http://dimox.name/jquery-form-styler/&amp;ref-page=34314" class="ya-partner__ads-link ya-partner__ads-link-r" target="_blank">Все объявления</a></yatag></yatag><yatag class="ya-partner__list"><yatag class="ya-partner__item ya-partner__item_pos_first"><a href="http://an.yandex.ru/count/0ilgFBbiTci40000Zh7RknO5XPfW29K2cm5kGxS2Am4pYBchQh02YQAxsQYU1vsivBe6bgH0P-wwy3CV6ah6KZS7ag4PogUcAegcjCbFgW6beJN30P6sdMMX0vE32PaPGeoGSGAWaE84hv1n0gURPG6egpTh5gIm00009wxuXajjGpzYsWImi6e-Hm6n0RlzXT_ME3RZi05y4G00?stat-id=6&amp;test-tag=545817617" class="ya-partner__title-link" target="_blank"><img class="ya-partner__icon" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/www.png" alt=""><yatag class="ya-partner__title-link-text">Среда программирования Javascript</yatag></a> <yatag class="ya-partner__text">Учебник Javascript. Бесплатные видео и&nbsp;книги. Заходите!</yatag> <yatag class="ya-partner__url"><yatag class="ya-partner__domain">proglive.ru</yatag>&nbsp;<yatag class="ya-partner__region"></yatag></yatag></yatag><yatag class="ya-partner__item ya-partner__item_pos_last"><a href="http://an.yandex.ru/count/0ilgF2r0XAO40000Zh7RknO5XPfW29K2cm5kGxS2Am4qYBKwam02YQ_cp1sU1vsVBnUMf41dxhhmCnyQIiPIDmUIf9dDkQOVYgzDpM6g0QMYBVK1aRQTPQ43auC9cHb2Z9284w2GJ1sla8WJfu8bgA3RRGUai00002Uk-8PBRKC_Oje4iB1gFaS1iG6x_ONVrZWsux01UX40?stat-id=6&amp;test-tag=545817617" class="ya-partner__title-link" target="_blank"><img class="ya-partner__icon" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/kharkov.png" alt=""><yatag class="ya-partner__title-link-text">Компьютерная Академия ШАГ.</yatag></a> <yatag class="ya-partner__text">Получи актуальную IT-профессию! Акция&nbsp;– скидки в&nbsp;апреле 10%. Приходи!</yatag> <yatag class="ya-partner__url"><a class="ya-partner__address" href="http://an.yandex.ru/count/0ilgFFUNoVi40000Zh7RknO5XPfW29K2cm5kGxS2Am4qYBKwam02YQ_cp1sU1vsVBnUMf41dxhhmCnyQIiPIDmUIf9dDkQOVYgzDpM6g1wMYBVK1aRQTPQ43auC9cHb2Z9284w2GJ1sla8WJfu8bgA3RRGUai00002Uk-8PBRKC_Oje4iB1gFaS1iG6x_ONVrZWsux01UX40?stat-id=6&amp;test-tag=545817617" target="_blank">Адрес&nbsp;и&nbsp;телефон</a>&nbsp;<yatag class="ya-partner__domain">kharkov.itstep.org</yatag>&nbsp;<yatag class="ya-partner__region"></yatag></yatag></yatag></yatag></yatag></div></div> </div><div class="section" id="more"> <ul class="tabs"> <li class="current">Похожие статьи</li> <li>Предыдущие из рубрики</li> </ul> <div class="box visible related"> <ul><li>— <a href="http://dimox.name/input-submit-vertical-align-in-firefox/" rel="bookmark" title="30.11.2009">FireFox и вертикальное выравнивание текста в input[submit]</a> <span><em>←</em> 30 ноября 2009 г.  (комментов: 65) </span></li> <li>— <a href="http://dimox.name/load-jquery-dynamically/" rel="bookmark" title="02.12.2010">Динамическое подключение jQuery</a> <span><em>←</em> 2 декабря 2010 г.  (комментов: 59) </span></li> <li>— <a href="http://dimox.name/styling-select-boxes-using-jquery-css/" rel="bookmark" title="02.04.2012">jQuery-плагин для стилизации select'ов</a> <span><em>←</em> 2 апреля 2012 г.  (комментов: 105) </span></li> <li>— <a href="http://dimox.name/styling-input-checkboxes-using-jquery-css/" rel="bookmark" title="20.08.2012">jQuery-плагин для стилизации input[type="checkbox"]</a> <span><em>←</em> 20 августа 2012 г.  (комментов: 35) </span></li> <li>— <a href="http://dimox.name/styling-input-radio-using-jquery-css/" rel="bookmark" title="29.08.2012">jQuery-плагин для стилизации input[type="radio"]</a> <span><em>←</em> 29 августа 2012 г.  (комментов: 38) </span></li> </ul><!-- Similar Posts took 7.351 ms --> </div> <div class="box previous"> <ul> <li class="li1">— <a href="http://dimox.name/styling-input-radio-using-jquery-css/" title="jQuery-плагин для стилизации input[type=&quot;radio&quot;]">jQuery-плагин для стилизации input[type="radio"]</a> <span><em>←</em> 29 августа 2012 г. (комментов: 38)</span></li> <li class="li2">— <a href="http://dimox.name/styling-input-checkboxes-using-jquery-css/" title="jQuery-плагин для стилизации input[type=&quot;checkbox&quot;]">jQuery-плагин для стилизации input[type="checkbox"]</a> <span><em>←</em> 20 августа 2012 г. (комментов: 35)</span></li> <li class="li1">— <a href="http://dimox.name/styling-select-boxes-using-jquery-css/" title="jQuery-плагин для стилизации select" ов'="">jQuery-плагин для стилизации select'ов</a> <span><em>←</em> 2 апреля 2012 г. (комментов: 105)</span></li> <li class="li2">— <a href="http://dimox.name/animated-scrolling-to-top/" title="Скрипт для плавной прокрутки на верх страницы (на JavaScript и на jQuery)">Скрипт для плавной прокрутки на верх страницы (на JavaScript и на jQuery)</a> <span><em>←</em> 21 марта 2012 г. (комментов: 57)</span></li> <li class="li1">— <a href="http://dimox.name/google-plus-one-and-share42/" title="Добавляем кнопку &quot;Google +1&quot; в панель от Share42.com">Добавляем кнопку "Google +1" в панель от Share42.com</a> <span><em>←</em> 21 июля 2011 г. (комментов: 68)</span></li> </ul> </div> </div> <!--noindex--> <div class="post comments"> <h3 id="comments" class="current"><span>Комментарии (402)</span> <a href="#respond" class="addComment" title="Дoбaвить кoммeнтapий">»</a></h3> <div id="allComments"> <div class="navigation commentnav"> <a href="http://dimox.name/jquery-form-styler/?cp=13#comments" title="Предыдущая">«</a><a href="http://dimox.name/jquery-form-styler/?cp=1#comments">1</a><a href="http://dimox.name/jquery-form-styler/?cp=2#comments">2</a><span class="extend">...</span><a href="http://dimox.name/jquery-form-styler/?cp=5#comments">5</a><a href="http://dimox.name/jquery-form-styler/?cp=6#comments">6</a><a href="http://dimox.name/jquery-form-styler/?cp=7#comments">7</a><a href="http://dimox.name/jquery-form-styler/?cp=8#comments">8</a><a href="http://dimox.name/jquery-form-styler/?cp=9#comments">9</a><a href="http://dimox.name/jquery-form-styler/?cp=10#comments">10</a><a href="http://dimox.name/jquery-form-styler/?cp=11#comments">11</a><a href="http://dimox.name/jquery-form-styler/?cp=12#comments">12</a><a href="http://dimox.name/jquery-form-styler/?cp=13#comments">13</a><span class="current">14</span><span>»</span></div> <ol id="commentlist"> <li id="comment-16446"> <div class="comment comment-author-admin" id="parent-16445"> <div class="cdata"> <div class="count">391</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar.png" alt="Dimox" class="avatar" height="46" width="46"> <div class="commenter"><a href="http://dimox.name/" rel="external nofollow">Dimox</a></div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16446" title="26.03.2013 в 16:41">20 дней назад</a> <span class="up2parent">(<a href="http://dimox.name/jquery-form-styler/?cp=13#comment-16445">ответ на коммент <strong>Игорь</strong></a>)</span> </div> </div> <div class="ctext"> <p>Только путем написания дополнительного скрипта, например:</p> <div class="codecolorer-container javascript " style="overflow:auto;white-space:nowrap;width:100%"><div class="javascript codecolorer" style="font-family:Monaco,Lucida Console,monospace">$<span class="br0">(</span><span class="st0">'.jq-selectbox li'</span><span class="br0">)</span>.<span class="me1">click</span><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br> &nbsp; $<span class="br0">(</span><span class="st0">'.jq-selectbox'</span><span class="br0">)</span>.<span class="me1">addClass</span><span class="br0">(</span><span class="st0">'changed'</span><span class="br0">)</span><span class="sy0">;</span><br> <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></div></div> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> </li> <li id="comment-16447"> <div class="comment"> <div class="cdata"> <div class="count">392</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar_003.png" alt="Артур" class="avatar" height="46" width="46"> <div class="commenter">Артур</div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16447" title="27.03.2013 в 01:24">19 дней назад</a> </div> </div> <div class="ctext"> <p>Хороший
+ плагин. Все нравится. Хотел бы спросить у вас совет, возможно ли это 
+все в виде combobox запилить. Что бы у пользователя кроме выбора, была 
+возможнь вводить свой текст?</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> <div class="subscribed" title="Подписан на комментарии через e-mail">@</div> </div> <li id="comment-16449"> <div class="comment comment-author-admin" id="parent-16447"> <div class="cdata"> <div class="count">394</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar.png" alt="Dimox" class="avatar" height="46" width="46"> <div class="commenter"><a href="http://dimox.name/" rel="external nofollow">Dimox</a></div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16449" title="27.03.2013 в 10:03">19 дней назад</a> <span class="up2parent">(<a href="#comment-16447">ответ на коммент <strong>Артур</strong></a>)</span> </div> </div> <div class="ctext"> <p>Такую функцию не планирую.</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> </li></li> <li id="comment-16448"> <div class="comment"> <div class="cdata"> <div class="count">393</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar_006.png" alt="Юрий" class="avatar" height="46" width="46"> <div class="commenter">Юрий</div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16448" title="27.03.2013 в 04:55">19 дней назад</a> </div> </div> <div class="ctext"> <p>Спасибо
+ за работу! Пока посмотрел всё обзорно, не увидел у Вас конкретной 
+информации о кроссбраузерности и решил бегло прогнать в разных версиях 
+ИЕ. Одиночный селект, который у Вас в демо по JS алертом выводит 
+значение - выводит результат только в ИЕ9+ :( Уже начинаю переживать, 
+точно ли всё будет работать корректно на живом проекте… Попробую ещё. 
+Всё-таки напишите, пожалуйста, в каких версиях браузеров обещаете 
+корректную работу :)</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> <div class="subscribed" title="Подписан на комментарии через e-mail">@</div> </div> <li id="comment-16450"> <div class="comment comment-author-admin" id="parent-16448"> <div class="cdata"> <div class="count">395</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar.png" alt="Dimox" class="avatar" height="46" width="46"> <div class="commenter"><a href="http://dimox.name/" rel="external nofollow">Dimox</a></div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16450" title="27.03.2013 в 10:06">19 дней назад</a> <span class="up2parent">(<a href="#comment-16448">ответ на коммент <strong>Юрий</strong></a>)</span> </div> </div> <div class="ctext"> <blockquote><p>Одиночный селект, который у Вас в демо по JS алертом выводит значение - выводит результат только в ИЕ9+</p></blockquote> <p>В стандартном селекте (без плагина) все точно так же, это косяк IE.</p> <blockquote><p>Всё-таки напишите, пожалуйста, в каких версиях браузеров обещаете корректную работу</p></blockquote> <p>Во всех популярных.</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> <li id="comment-16454"> <div class="comment" id="parent-16450"> <div class="cdata"> <div class="count">396</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar_006.png" alt="Юрий" class="avatar" height="46" width="46"> <div class="commenter">Юрий</div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16454" title="27.03.2013 в 14:41">19 дней назад</a> <span class="up2parent">(<a href="#comment-16450">ответ на коммент <strong>Dimox</strong></a>)</span> </div> </div> <div class="ctext"> <p>Спасибо
+ за ответ! И всё-таки, про браузеры я не зря спросил… Вы поймите, что 
+это нужная информация и она должна быть. Например, вот эти товарищи 
+_http://uniformjs.com справа у себя написали, где тестировали. Для 
+разработчика, который потом будет пользоваться плагином, это очень 
+важно.</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> <div class="subscribed" title="Подписан на комментарии через e-mail">@</div> </div> </li></li></li>    <li id="comment-16475"> <div class="comment"> <div class="cdata"> <div class="count">397</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar_004.png" alt="An" class="avatar" height="46" width="46"> <div class="commenter">An</div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16475" title="03.04.2013 в 09:53">12 дней назад</a> </div> </div> <div class="ctext"> <div class="codecolorer-container text " style="overflow:auto;white-space:nowrap;width:100%"><div class="text codecolorer" style="font-family:Monaco,Lucida Console,monospace">&lt;input class="styler" type="number" value="0" size="6" /&gt;</div></div> <p>Плз, помогите - в интернет эксплорере не показывается как в других. Как то можно пофиксить до идентичности?</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> <li id="comment-16476"> <div class="comment comment-author-admin" id="parent-16475"> <div class="cdata"> <div class="count">398</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar.png" alt="Dimox" class="avatar" height="46" width="46"> <div class="commenter"><a href="http://dimox.name/" rel="external nofollow">Dimox</a></div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16476" title="03.04.2013 в 10:08">12 дней назад</a> <span class="up2parent">(<a href="#comment-16475">ответ на коммент <strong>An</strong></a>)</span> </div> </div> <div class="ctext"> <p>Разве что искать jQuery-плагин, который умеет это делать.</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> </li><li id="comment-16477"> <div class="comment comment-author-admin" id="parent-16475"> <div class="cdata"> <div class="count">399</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar.png" alt="Dimox" class="avatar" height="46" width="46"> <div class="commenter"><a href="http://dimox.name/" rel="external nofollow">Dimox</a></div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16477" title="03.04.2013 в 10:09">12 дней назад</a> <span class="up2parent">(<a href="#comment-16475">ответ на коммент <strong>An</strong></a>)</span> </div> </div> <div class="ctext"> <p>Например, этот - <a title="https://github.com/alexriz/jQuery.ins" href="http://dimox.name/jexr/aHR0cHM6Ly9naXRodWIuY29tL2FsZXhyaXovalF1ZXJ5Lmlucw==" target="_blank" rel="nofollow">https://github.com/alexriz/jQuery.ins</a></p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> </li></li>   <li id="comment-16512"> <div class="comment"> <div class="cdata"> <div class="count">400</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar_002.png" alt="alex" class="avatar" height="46" width="46"> <div class="commenter">alex</div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16512" title="08.04.2013 в 16:42">7 дней назад</a> </div> </div> <div class="ctext"> <p>Добрый
+ вечер, есть форма в ней есть checkbox  также сть конпка сбросить (input
+ type="reset") , принажатие на неё checkbox  не сбрасываются, в чем 
+может быть проблема?</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> <li id="comment-16513"> <div class="comment comment-author-admin" id="parent-16512"> <div class="cdata"> <div class="count">401</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar.png" alt="Dimox" class="avatar" height="46" width="46"> <div class="commenter"><a href="http://dimox.name/" rel="external nofollow">Dimox</a></div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16513" title="08.04.2013 в 21:34">7 дней назад</a> <span class="up2parent">(<a href="#comment-16512">ответ на коммент <strong>alex</strong></a>)</span> </div> </div> <div class="ctext"> <p>Скрипт не знает, что нажат reset. Нужно добавить что-то типа:</p> <div class="codecolorer-container javascript " style="overflow:auto;white-space:nowrap;width:100%"><div class="javascript codecolorer" style="font-family:Monaco,Lucida Console,monospace">$<span class="br0">(</span><span class="st0">':reset'</span><span class="br0">)</span>.<span class="me1">click</span><span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br> &nbsp; $<span class="br0">(</span><span class="st0">':checkbox'</span><span class="br0">)</span>.<span class="me1">trigger</span><span class="br0">(</span><span class="st0">'refresh'</span><span class="br0">)</span><span class="sy0">;</span><br> <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></div></div> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> </li></li>  <li id="comment-16535"> <div class="comment"> <div class="cdata"> <div class="count">402</div> <img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/avatar_005.png" alt="Alex" class="avatar" height="46" width="46"> <div class="commenter">Alex</div> <div class="commentmetadata"> <a href="http://dimox.name/jquery-form-styler/?cp=14#comment-16535" title="12.04.2013 в 04:54">3 дня назад</a> </div> </div> <div class="ctext"> <p>Приветствую. Хороший плагин!</p> <p>Заметил два таких момента:<br>
+ 1) Нет стилизации полосы прокрутки в выпадающем списке селекта, а это 
+порой необходимо. Т.е. получается не полный контроль над внешним видом.<br>
+ 2) При зажатии кнопки мыши на стилизованных элементах остается 
+возможность выделения текста на странице. Стандартные элементы в этой 
+ситуации отключают выделение текста. Да и просто это не очень красиво 
+смотрится :)</p> </div> <div class="reply">(<a href="#respond">ответить</a>)</div> </div> </li> </ol><div class="navigation commentnav"> <a href="http://dimox.name/jquery-form-styler/?cp=13#comments" title="Предыдущая">«</a><a href="http://dimox.name/jquery-form-styler/?cp=1#comments">1</a><a href="http://dimox.name/jquery-form-styler/?cp=2#comments">2</a><span class="extend">...</span><a href="http://dimox.name/jquery-form-styler/?cp=5#comments">5</a><a href="http://dimox.name/jquery-form-styler/?cp=6#comments">6</a><a href="http://dimox.name/jquery-form-styler/?cp=7#comments">7</a><a href="http://dimox.name/jquery-form-styler/?cp=8#comments">8</a><a href="http://dimox.name/jquery-form-styler/?cp=9#comments">9</a><a href="http://dimox.name/jquery-form-styler/?cp=10#comments">10</a><a href="http://dimox.name/jquery-form-styler/?cp=11#comments">11</a><a href="http://dimox.name/jquery-form-styler/?cp=12#comments">12</a><a href="http://dimox.name/jquery-form-styler/?cp=13#comments">13</a><span class="current">14</span><span>»</span></div> </div><!-- #allComments --> <script> (function($) {
+ $(function() {
+ 	$('span.up2parent').hover(function() {
+ 		$('#popup').remove();
+ 		var href = $(this).find('a').attr('href');
+ 		if (/\?cp=/.test(href)) {
+ 			var id = href.replace(/(.+)#comment-/, '');
+ 			var parent = $(this).parents('div.comment');
+ 			$('<div>').load('/wp-content/themes/dimox.name/comment_popup.php?id=' + id, function() {
+ 				parent.append('<div id="popup"></div>');
+ 				$('#popup').append($(this));
+ 			});
+ 		}
+ 	}, function() {
+ 		$('#popup').remove();
+ 	});
+ 	$('div.comment').mouseout(function() {
+ 		$('#popup').remove();
+ 	});
+ })
+ })(jQuery)
+ </script> <style> #popup {
+ 	position: absolute;
+ 	bottom: 100%;
+ 	left: 200px;
+ 	z-index: 100;
+ 	width: 750px;
+ 	margin: 0 0 -15px;
+ 	box-shadow: 0 0 40px rgba(0,0,0,0.6);
+ 	border: 1px solid #FFF;
+ }
+ </style> </div><!-- .post --> <div class="context"> <div id="ya_direct2"> <script type="text/javascript"><!--
+ yandex_partner_id = 34314;
+ yandex_site_bg_color = 'FFFFFF';
+ yandex_stat_id = 7;
+ yandex_site_charset = 'utf-8';
+ yandex_ad_format = 'direct';
+ yandex_font_size = 1;
+ yandex_font_family = 'courier new';
+ yandex_direct_type = 'flat';
+ yandex_direct_border_type = 'ad';
+ yandex_direct_limit = 2;
+ yandex_direct_bg_color = 'FFFFFF';
+ yandex_direct_border_color = 'E9E9E9';
+ yandex_direct_title_color = '0094D6';
+ yandex_direct_url_color = '666666';
+ yandex_direct_all_color = '777777';
+ yandex_direct_text_color = '000000';
+ yandex_direct_hover_color = 'FF7700';
+ yandex_direct_favicon = true;
+ document.write('<sc'+'ript type="text/javascript" src="http://an.yandex.ru/system/context.js"></sc'+'ript>');
+ //--></script><script type="text/javascript" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/context.js"></script><script type="text/javascript" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/context_static_r601.js" yandex_load_check="yes"></script><script type="text/javascript" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/34314.js"></script><style type="text/css">body .ya-partner .ya-partner__hidden {
+    display: none !important;
+}
+ .ya-partner {
+    font-size: 100% !important;
+    position: relative !important;
+    display: block !important;
+    overflow: hidden !important;
+    text-align: left !important;
+    line-height: normal !important;
+    border-radius: 4px 4px 4px 4px !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+}
+ .ya-partner__l-table, .ya-partner__l-tr, .ya-partner__l-td {
+    background: transparent none no-repeat scroll 0 0 !important;
+    border: none !important;
+    border-radius: none !important;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    clear: none !important;
+    clip: auto !important;
+    color: inherit !important;
+    cursor: auto !important;
+    empty-cells: show !important;
+    float: none !important;
+    font: inherit !important;
+    height: auto !important;
+    letter-spacing: normal !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    outline: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    position: static !important;
+    table-layout: auto !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-indent: 0 !important;
+    text-transform: none !important;
+    vertical-align: middle !important;
+    visibility: visible !important;
+    white-space: normal !important;
+    width: auto !important;
+    word-spacing: normal !important;
+    z-index: auto !important;
+}
+ .ya-partner, .ya-partner__ads-l, .ya-partner__ads-l em, .ya-partner__ads-r, .ya-partner__item, .ya-partner__title-link-text, .ya-partner__text, .ya-partner__domain, .ya-partner__region, ya-partner__pic-container, ya-partner__pic, .ya-partner__list tbody, .ya-partner__list tr, .ya-partner__list td {
+    font-size: inherit !important;
+    font-style: normal !important;
+    text-indent: 0 !important;
+}
+ .ya-partner_text_clickable a.ya-partner__text {
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+ .ya-partner_text_clickable a.ya-partner__text:hover {
+    text-decoration: underline !important;
+}
+ .ya-partner__pic-container {
+    display: block !important;
+    margin: 3px 0 !important;
+}
+ .ya-partner__item_piclayout_left .ya-partner__pic-container {
+    margin: 0 0.4em 0 0 !important;
+}
+ .ya-partner__item_piclayout_float .ya-partner__pic-container {
+    margin: 0.4em 0.4em 0 0 !important;
+    float: left !important;
+}
+ .ya-partner__item_piclayout_float .ya-partner__address, .ya-partner__item_piclayout_float .ya-partner__domain, .ya-partner__item_piclayout_float .ya-partner__region {
+    white-space: nowrap !important;
+}
+ .ya-partner__clearfix {
+    background: transparent none no-repeat scroll 0 0 !important;
+    border: none !important;
+    border-radius: none !important;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    clear: both !important;
+    clip: auto !important;
+    color: inherit !important;
+    cursor: auto !important;
+    empty-cells: show !important;
+    float: none !important;
+    font: inherit !important;
+    height: 0 !important;
+    letter-spacing: normal !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    outline: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    position: static !important;
+    table-layout: auto !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-indent: 0 !important;
+    text-transform: none !important;
+    vertical-align: baseline !important;
+    visibility: visible !important;
+    white-space: normal !important;
+    width: auto !important;
+    word-spacing: normal !important;
+    z-index: auto !important;
+    font-size: 0 !important;
+    display: block !important;
+}
+ .ya-partner__pic, .ya-partner__pic:link, .ya-partner__pic:hover, .ya-partner__pic:visited {
+    background: transparent 0 0 no-repeat scroll !important;
+    border: none !important;
+    border-radius: none !important;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    clear: none !important;
+    clip: auto !important;
+    color: inherit !important;
+    cursor: pointer !important;
+    empty-cells: show !important;
+    float: none !important;
+    font: inherit !important;
+    height: auto !important;
+    letter-spacing: normal !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    outline: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    position: static !important;
+    table-layout: auto !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-indent: 0 !important;
+    text-transform: none !important;
+    vertical-align: baseline !important;
+    visibility: visible !important;
+    white-space: normal !important;
+    width: auto !important;
+    word-spacing: normal !important;
+    z-index: auto !important;
+    display: block !important;
+}
+ .ya-partner yatag {
+    text-align: left !important;
+    font-family: inherit !important;
+}
+ .ya-partner__list {
+    display: block !important;
+    line-height: normal !important;
+    font-size: inherit !important;
+    text-indent: 0 !important;
+}
+ .ya-partner__title-link, .ya-partner__address, .ya-partner__ads-link {
+    background: transparent none no-repeat scroll 0 0 !important;
+    border: none !important;
+    border-radius: none !important;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    clear: none !important;
+    clip: auto !important;
+    color: inherit !important;
+    cursor: pointer !important;
+    empty-cells: show !important;
+    float: none !important;
+    font: inherit !important;
+    height: auto !important;
+    letter-spacing: normal !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    outline: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    position: static !important;
+    table-layout: auto !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-indent: 0 !important;
+    text-transform: none !important;
+    vertical-align: baseline !important;
+    visibility: visible !important;
+    white-space: normal !important;
+    width: auto !important;
+    word-spacing: normal !important;
+    z-index: auto !important;
+    font-size: inherit !important;
+    font-style: normal !important;
+    display: inline !important;
+}
+ a.ya-partner__address:link, a.ya-partner__address:hover, a.ya-partner__address:visited {
+    text-decoration: underline !important;
+}
+ .ya-partner__address {
+    margin-right: 0.3em !important;
+}
+ a.ya-partner__ads-link:link, a.ya-partner__ads-link:hover, a.ya-partner__ads-link:visited {
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+ .ya-partner__ads-link em {
+    font-style: normal !important;
+    font-weight: normal !important;
+    background: none repeat scroll 0 0 transparent !important;
+}
+ .ya-partner__item {
+    border-radius: 4px 4px 4px 4px !important;
+    border: none !important;
+    padding: 0.2em 0.3em !important;
+    line-height: normal !important;
+}
+ body .ya-partner__item_pos_last {
+    margin-bottom: 0 !important;
+}
+ .ya-partner_ads_inner-up .ya-partner__item_pos_first, .ya-partner_ads_inner-up-down .ya-partner__item_pos_first, .ya-partner_ads_inner-down .ya-partner__item_pos_last {
+    border-radius: 0 4px 4px 4px !important;
+}
+ .ya-partner_ads_inner-down .ya-partner__item_pos_last, .ya-partner_ads_inner-up-down .ya-partner__item_pos_last {
+    border-radius: 4px 4px 4px 0 !important;
+}
+ .ya-partner_ads_inner-down .ya-partner__item_pos_first.ya-partner__item_pos_last {
+    border-radius: 4px 4px 4px 0 !important;
+}
+ .ya-partner__url {
+    font-size: 87% !important;
+    display: block !important;
+}
+ .ya-partner__hide-urls .ya-partner__list .ya-partner__url {
+    display: none !important;
+}
+ .ya-partner__warn {
+    font-size: 70% !important;
+    border-radius: 2px !important;
+    -moz-border-radius: 2px !important;
+    -webkit-border-radius: 2px !important;
+    padding: 0.25em 0.3em 0.25em !important;
+    line-height: 1.1em !important;
+}
+ .ya-partner__agewarn-cont {
+    padding-left: .3em !important;
+    display: inline-block !important;
+    float: right !important;
+}
+ .ya-partner__text .ya-partner__agewarn-cont {
+    display: none !important;
+}
+ .ya-partner__hide-urls .ya-partner__text .ya-partner__agewarn-cont {
+    display: inline-block !important;
+    padding-left: 0 !important;
+}
+ yatag.ya-partner__agewarn {
+    font: normal normal 85% Tahoma, Arial, sans-serif !important;
+    border-radius: 5px !important;
+    padding: 0 1px !important;
+    vertical-align: baseline !important;
+}
+ .ya-partner__url .ya-partner__agewarn {
+    font-size: 90% !important;
+}
+ .ya-partner__ads {
+    white-space: nowrap !important;
+    font-size: 87% !important;
+}
+ .ya-partner__icon {
+    font: 0/0 a !important;
+    margin: 0 4px -2px 0 !important;
+    vertical-align: baseline !important;
+    border: 0 !important;
+    display: inline !important;
+    width: auto !important;
+    float: none !important;
+}
+ .ya-partner__ads-link {
+    position: relative !important;
+    z-index: 10 !important;
+    margin-left: 5px !important;
+    line-height: normal !important;
+    white-space: nowrap !important;
+}
+ .ya-partner__ads-l {
+    display: inline-block !important;
+    position: relative !important;
+    background: none repeat scroll 0 0 transparent !important;
+    padding-right: .75em !important;
+}
+ .ya-partner__ads-r {
+    display: inline-block !important;
+    margin-left: -5px !important;
+    padding: 0 0 0 10px !important;
+}
+ .ya-partner__ads-r .ya-partner__ads-link {
+    margin: 0 5px 0 0 !important;
+}
+ a.ya-partner__ads-link-r,a.ya-partner__ads-link-r:link,a.ya-partner__ads-link-r:hover,a.ya-partner__ads-link-r:visited,a.ya-partner__ads-link-r:active,a.ya-partner__ads-link-r:focus,a.ya-partner__ads-link-l,a.ya-partner__ads-link-l:link,a.ya-partner__ads-link-l:hover,a.ya-partner__ads-link-l:visited,a.ya-partner__ads-link-l:active,a.ya-partner__ads-link-l:focus {
+    font-weight: normal !important;
+}
+ a.ya-partner__title-link,a.ya-partner__title-link:link,a.ya-partner__title-link:hover,a.ya-partner__title-link:visited,a.ya-partner__title-link:active,a.ya-partner__title-link:focus {
+    font-weight: normal !important;
+    line-height: normal !important;
+    text-decoration: none !important;
+}
+ a.ya-partner__title-link .ya-partner__title-link-text,a.ya-partner__title-link .ya-partner__title-link-text:link,a.ya-partner__title-link .ya-partner__title-link-text:hover,a.ya-partner__title-link .ya-partner__title-link-text:visited,a.ya-partner__title-link .ya-partner__title-link-text:active,a.ya-partner__title-link .ya-partner__title-link-text:focus {
+    display: inline !important;
+    text-decoration: underline !important;
+}
+ .ya-partner_text_clickable a.ya-partner__title-link .ya-partner__title-link-text, .ya-partner_text_clickable a.ya-partner__address {
+    text-decoration: none !important;
+}
+ .ya-partner_text_clickable a.ya-partner__title-link:hover .ya-partner__title-link-text, .ya-partner_text_clickable a.ya-partner__address:hover {
+    text-decoration: underline !important;
+}
+ .ya-partner_ads-up .ya-partner__ads {
+    position: relative !important;
+    display: block !important;
+}
+ .ya-partner_ads-up .ya-partner__ads-l {
+    padding-bottom: 1px !important;
+    vertical-align: top !important;
+    border-radius: 4px 0 0 0 !important;
+    -moz-border-radius: 4px 0 0 0 !important;
+    -webkit-border-radius: 4px 0 0 0 !important;
+}
+ .ya-partner_ads-up .ya-partner__ads-r {
+    padding-bottom: 1px !important;
+    vertical-align: top !important;
+    border-radius: 0 0 4px 0 !important;
+    -moz-border-radius: 0 0 4px 0 !important;
+    -webkit-border-radius: 0 0 4px 0 !important;
+}
+ .ya-partner_ads-down .ya-partner__ads {
+    position: absolute !important;
+    bottom: 0 !important;
+}
+ .ya-partner_ads-down .ya-partner__list {
+    padding-bottom: 1em !important;
+}
+ .ya-partner_ads-down .ya-partner__ads-l {
+    border-radius: 0 0 0 3px !important;
+    -moz-border-radius: 0 0 0 3px !important;
+    -webkit-border-radius: 0 0 0 3px !important;
+}
+ .ya-partner_ads-down .ya-partner__ads-r {
+    border-radius: 0 4px 0 0 !important;
+    -moz-border-radius: 0 4px 0 0 !important;
+    -webkit-border-radius: 0 4px 0 0 !important;
+}
+ .ya-partner_ads_inner-up-down .ya-partner__list {
+    margin: 0 0 1em !important;
+}
+ .ya-partner_ads-up-down .ya-partner__list {
+    margin: 1em 0 !important;
+}
+ .ya-partner_ads_inner-up-down .ya-partner__ads-l, .ya-partner_ads-up-down .ya-partner__ads-l {
+    border-radius: 3px 0 0 0 !important;
+    -moz-border-radius: 3px 0 0 0 !important;
+    -webkit-border-radius: 3px 0 0 0 !important;
+}
+ .ya-partner_ads-up-down .ya-partner__ads-l {
+    position: absolute !important;
+    top: 0 !important;
+}
+ .ya-partner_ads-up-down .ya-partner__ads-link {
+    display: inline-block !important;
+    padding-bottom: 2px !important;
+}
+ .ya-partner_ads-up-down .ya-partner__ads-r .ya-partner__ads-link {
+    padding-bottom: 1px !important;
+}
+ .ya-partner_ads_inner-up-down .ya-partner__ads-r, .ya-partner_ads-up-down .ya-partner__ads-r {
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 0 4px 4px !important;
+    -moz-border-radius: 0 0 4px 4px !important;
+    -webkit-border-radius: 0 0 4px 4px !important;
+}
+ .ya-partner_ads_inner-up-down .ya-partner__ads-r {
+    left: 0 !important;
+}
+ .ya-partner_ads-up-down .ya-partner__ads-r {
+    border-radius: 0 0 3px 3px !important;
+    -moz-border-radius: 0 0 3px 3px !important;
+    -webkit-border-radius: 0 0 3px 3px !important;
+}
+ .ya-partner_ads_inner-up-down .ya-partner__ads-link, .ya-partner_ads-up-down .ya-partner__ads-link {
+    margin-left: 5px !important;
+}
+ .ya-partner_ads_inner-up .ya-partner__ads {
+    display: block !important;
+}
+ .ya-partner_ads_inner-up .ya-partner__ads-l, .ya-partner_ads_inner-up .ya-partner__ads-r {
+    vertical-align: top !important;
+}
+ .ya-partner_ads_inner-up .ya-partner__ads-l {
+    border-radius: 4px 0 0 0 !important;
+    -moz-border-radius: 4px 0 0 0 !important;
+    -webkit-border-radius: 4px 0 0 0 !important;
+}
+ .ya-partner_ads_inner-up .ya-partner__ads-r {
+    border-radius: 0 4px 0 0 !important;
+    -moz-border-radius: 0 4px 0 0 !important;
+    -webkit-border-radius: 0 4px 0 0 !important;
+}
+ .ya-partner_ads_inner-down .ya-partner__ads {
+    display: block !important;
+}
+ .ya-partner_ads_inner-down .ya-partner__ads-l {
+    border-radius: 0 0 0 4px !important;
+    -moz-border-radius: 0 0 0 4px !important;
+    -webkit-border-radius: 0 0 0 4px !important;
+}
+ .ya-partner_ads_inner-down .ya-partner__ads-r {
+    border-radius: 0 0 4px 0 !important;
+    -moz-border-radius: 0 0 4px 0 !important;
+    -webkit-border-radius: 0 0 4px 0 !important;
+}
+ .ya-partner_ads_inner-down .ya-partner__ads-link, .ya-partner_ads-down .ya-partner__ads-link {
+    display: inline-block !important;
+    padding-bottom: 1px !important;
+}
+ .ya-partner_ads_only-arrow .ya-partner__ads {
+    margin-right: 0.5em !important;
+}
+ .ya-partner_margin_yes .ya-partner__icon {
+    margin-left: -20px !important;
+}
+ .ya-partner_margin_yes .ya-partner__item {
+    padding-left: 20px !important;
+}
+ .ya-partner__wrap-fit {
+    display: block !important;
+    zoom: 1 !important;
+    position: relative !important;
+    padding-bottom: 1px !important;
+    font-size: inherit !important;
+    border-radius: 4px 4px 4px 4px !important;
+}
+ .ya-partner_type_flat .ya-partner__title-link, .ya-partner_type_flat .ya-partner__text, .ya-partner_type_flat .ya-partner__url {
+    display: inline !important;
+    vertical-align: baseline !important;
+}
+ :root .ya-partner_type_flat {
+    display: table\0/IE9 !important;
+    width: 100%\0/IE9 !important;
+}
+ :root .ya-partner_type_flat.ya-partner_border.ya-partner_ads-down .ya-partner__ads {
+    bottom: 1px\0/IE9 !important;
+}
+ .ya-partner_type_flat .ya-partner__item {
+    display: block !important;
+    line-height: normal !important;
+}
+ .ya-partner_type_flat .ya-partner__text {
+    padding-left: 0.5em !important;
+}
+ .ya-partner_type_flat .ya-partner__warn {
+    display: block !important;
+    margin-top: 0.3em !important;
+}
+ .ya-partner_type_flat .ya-partner__text .ya-partner__agewarn-cont {
+    float: none !important;
+}
+ .ya-partner_type_flat .ya-partner__text .ya-partner__clearfix {
+    display: none !important;
+}
+ .ya-partner_type_flat .ya-partner__l-td {
+    vertical-align: middle !important;
+}
+ .ya-partner_type_flat .ya-partner__item_pic_yes .ya-partner__text {
+    display: block !important;
+}
+ .ya-partner_theme_flat_inner .ya-partner__item {
+    margin-bottom: 0.5em !important;
+}
+ .ya-partner_theme_flat_inner .ya-partner__item_pos_last {
+    margin-bottom: 0 !important;
+}
+ .ya-partner_type_flat-simple .ya-partner__list {
+}
+ .ya-partner_type_flat-simple .ya-partner__url {
+    display: block !important;
+    margin-top: 0.3em !important;
+}
+ .ya-partner_type_flat-simple .ya-partner__item {
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+ .ya-partner_type_flat-simple .ya-partner__item_pic_yes {
+    padding-top: .2em !important;
+    padding-bottom: .2em !important;
+}
+ .ya-partner_type_flat-simple .ya-partner__text {
+    padding-left: 0 !important;
+}
+#ya_partner_0 .ya-partner__title-link-text:visited {
+    color: #0094D6 !important;
+}
+ #ya_partner_0 .ya-partner__title-link-text:link {
+    color: #0094D6 !important;
+}
+ #ya_partner_0 .ya-partner__title-link-text:hover {
+    color: #FF7700 !important;
+}
+ #ya_partner_0 .ya-partner__title-link-text {
+    color: #0094D6 !important;
+    font-size: 130% !important;
+}
+ #ya_partner_0 .ya-partner__region {
+    color: #666666 !important;
+}
+ #ya_partner_0 .ya-partner__domain {
+    color: #666666 !important;
+}
+ #ya_partner_0 .ya-partner__address {
+    color: #666666 !important;
+}
+ #ya_partner_0 .ya-partner {
+    font-family: courier new, monospace !important;
+    color: #000000 !important;
+    font-size: 1em !important;
+    border-radius: 0 !important;
+}
+ #ya_partner_0 .ya-partner__text {
+    font-family: courier new, monospace !important;
+    color: #000000 !important;
+}
+ #ya_partner_0 .ya-partner__item {
+    background: #FFFFFF !important;
+    border: 1px solid #E9E9E9 !important;
+    border-radius: 0 !important;
+}
+ #ya_partner_0 .ya-partner__wrap-fit {
+    border-radius: 0 !important;
+}
+ #ya_partner_0 .ya-partner__warn {
+    border: 1px solid #D8D8D8 !important;
+    background-color: #FFFFFF !important;
+}
+ #ya_partner_0 .ya-partner__agewarn {
+    border: 1px solid #D8D8D8 !important;
+    background-color: #FFFFFF !important;
+}
+ #ya_partner_0 a.ya-partner__ads-link-r:link {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_0 a.ya-partner__ads-link-r:hover {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_0 a.ya-partner__ads-link-r:visited {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_0 a.ya-partner__ads-link-l:link {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_0 a.ya-partner__ads-link-l:hover {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_0 a.ya-partner__ads-link-l:visited {
+    text-decoration:  !important;
+    color: #000 !important;
+}</style><div id="ya_partner_0" style="background:transparent none no-repeat scroll 0 0 !important;border:none !important;border-radius:none !important;border-spacing:0 !important;border-collapse:collapse !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important;clear:none !important;clip:auto !important;color:inherit !important;cursor:auto !important;empty-cells:show !important;float:none !important;font:inherit !important;height:auto !important;letter-spacing:normal !important;line-height:normal !important;margin:0 !important;max-height:none !important;max-width:none !important;min-height:0 !important;min-width:0 !important;outline:none !important;overflow:visible !important;padding:0 !important;position:static !important;table-layout:auto !important;text-align:left !important;text-decoration:none !important;text-indent:0 !important;text-transform:none !important;vertical-align:baseline !important;visibility:visible !important;white-space:normal !important;width:auto !important;word-spacing:normal !important;z-index:auto !important;display:block !important;"><yatag class="ya-partner_ads_inner-up ya-partner_theme_flat_inner  ya-partner ya-partner_type_flat ya-partner_type_flat-simple"><yatag class="ya-partner__ads"><yatag class="ya-partner__ads-l"><a href="http://direct.yandex.ru/?partner" class="ya-partner__ads-link ya-partner__ads-link-l" target="_blank">Яндекс.Директ</a></yatag><yatag class="ya-partner__ads-r"><a href="http://direct.yandex.ru/search?from=http://dimox.name/jquery-form-styler/&amp;ref-page=34314" class="ya-partner__ads-link ya-partner__ads-link-r" target="_blank">Все объявления</a></yatag></yatag><yatag class="ya-partner__list"><yatag class="ya-partner__item ya-partner__item_pos_first"><a href="http://an.yandex.ru/count/0ilgF6H4fka40000Zh7RknO5XPfW29K2cm5kGxS2Am68j1Tey0A9hE6MqPWndWUTaY0SbgH0P-wwy3CV6ah6KZS7agE4sBkcBeghEDXZgW6bhYFo0P6sdMMX0u-xxaVy2f-x8juw1vE32PahGeoGLLgWa533hv1LMgUB7QYmG5bp1wIm00009wmjhlY6Isr3FsBQ1B2mQZv70R41k_s5tzOuDkEm0NeJ?stat-id=7&amp;test-tag=545784849" class="ya-partner__title-link" target="_blank"><img class="ya-partner__icon" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/browser.png" alt=""><yatag class="ya-partner__title-link-text">Скачайте новый Яндекс.Браузер</yatag></a> <yatag class="ya-partner__text">Простой интерфейс и&nbsp;поиск Яндекса. Быстрый доступ к&nbsp;любимым страницам!</yatag> <yatag class="ya-partner__url"><yatag class="ya-partner__domain">browser.yandex.ua</yatag>&nbsp;<yatag class="ya-partner__region"></yatag></yatag></yatag><yatag class="ya-partner__item ya-partner__item_pos_last"><a href="http://an.yandex.ru/count/0ilgFBydNxK40000Zh7RknO5XPfW29K2cm5kGxS2Am4oYBCkm501YQmCUv-OZ2UU1vsiTSG9bgH0P-wwy3CV6ah6KZS7agXrXyEc58gaAOThgW6bfMiE0f6sdMMX0u-nwHLh3v-xQI6I39E32PbWGeoGHJEWa9EZhv15CvIPyWYdZqIekOoNc06ai00002UiBQxuXajjGpzYsWImi6e-Hm6n0RlzXT_ME3RZi05v5000?stat-id=7&amp;test-tag=545784849" class="ya-partner__title-link" target="_blank"><img class="ya-partner__icon" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/stylus.png" alt=""><yatag class="ya-partner__title-link-text">Apple New iPad&nbsp;3</yatag></a> <yatag class="ya-partner__text">Уже в&nbsp;наличии. Купи сейчас ;) Доставка по&nbsp;Украине! Заказывай!</yatag> <yatag class="ya-partner__url"><a class="ya-partner__address" href="http://an.yandex.ru/count/0ilgF2z-SxK40000Zh7RknO5XPfW29K2cm5kGxS2Am4oYBCkm501YQmCUv-OZ2UU1vsiTSG9bgH0P-wwy3CV6ah6KZS7agXrXyEc58gaAOThgWUbfMiE0f6sdMMX0u-nwHLh3v-xQI6I39E32PbWGeoGHJEWa9EZhv15CvIPyWYdZqIekOoNc06ai00002UiBQxuXajjGpzYsWImi6e-Hm6n0RlzXT_ME3RZi05v5000?stat-id=7&amp;test-tag=545784849" target="_blank">Адрес&nbsp;и&nbsp;телефон</a>&nbsp;<yatag class="ya-partner__domain">stylus.com.ua</yatag>&nbsp;<yatag class="ya-partner__region"></yatag></yatag></yatag></yatag></yatag></div> </div> </div><!-- .context --> <div id="resp"></div> <div id="respond"> <div class="post"> <h3>Присоединяйтесь к обсуждению!</h3> <form action="http://dimox.name/wp-comments-post.php" method="post" id="commentform"> <div id="author-data"> <div class="field"> <div class="input"> <input name="author" id="author" class="required" placeholder="Имя" value="Имя" tabindex="1" type="text"> <span class="icon author"></span> </div> </div> <div class="field"> <div class="input"> <input name="email" id="email" class="required email" placeholder="Е-mаil (нe публикуeтcя)" value="Е-mаil (нe публикуeтcя)" tabindex="2" type="text"> <span class="icon email"></span> </div> </div> <div class="field"> <div class="input"> <input name="url" id="url" placeholder="URL блога" value="URL блога" tabindex="3" type="text"> <span class="icon url"></span> </div> </div> </div> <p><div id="jquery-comment-wrap"><div id="jquery-comment-preview"><div id="html-editor"><a href="#" tag="strong" id="ed_strong">жирный</a><a href="#" tag="a" id="ed_a">ссылка<b> href="" target="_blank"</b></a><a href="#" tag="blockquote">цитата</a><a href="#" tag="tt" title="Внутристрочный код">tt</a><a href="#" tag="code">code<b> lang="text"</b></a><a href="#" tag="code">CSS<b> lang="css"</b></a><a href="#" tag="code">HTML<b> lang="html"</b></a><a href="#" tag="code">JavaScript<b> lang="javascript"</b></a><a href="#" tag="code">PHP<b> lang="php"</b></a><a href="http://dimox.name/jquery-comment-preview-wordpress-plugin/" target="_blank" title="О плагине">?</a></div><div id="preview-tab">Предпросмотр</div></div><textarea name="comment-b6a1f" id="comment" class="required" cols="" rows="10" tabindex="4"></textarea></div><textarea name="comment" rows="1" cols="1" style="display:none"></textarea></p> <p style="clear: both;" class="subscribe-to-comments"> <input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox"> <label for="subscribe">Уведомите меня о новых кoммeнтapиях по электронной почте</label> </p> <p class="terms">Отправляя кoммeнтapий, вы автоматически принимаете <a href="#t4">правила кoммeнтиpoвaния</a> на этом блоге.</p> <div id="t4" class="terms"> <h3>Правила кoммeнтиpoвaния на блоге dimox.name:</h3> <ol> <li>Первый кoммeнтapий всегда проходит премодерацию.</li> <li>В поле "<strong>URL блога</strong>" можно указывать только ссылку на главную страницу вашего блога. Ссылки на прочие веб-ресурсы (в том числе блоги/сплоги, <strong>созданные не для людей</strong>) будут удалены.</li> <li>Запрещается использовать в качестве имени комментатора <strong>слоганы/названия сайтов, рекламные фразы, ключевые</strong>
+ и т.п. слова. В случае несоблюдения этого условия имя изменяется по 
+усмотрению владельца блога. Просьба указывать нормальное имя или ник.</li> <li>Весьма вероятно, что короткий и неинформативный кoммeнтapий вида "<strong>Спасибо!</strong>", "<strong>Интересная статья</strong>", будет удален. Исключение составляют знакомые автору блога комментаторы.</li> <li>Комментарии не по теме удаляются.</li> </ol> </div> <p> <button name="submit" type="submit" id="submit" tabindex="5">Отпpaвить кoммeнтapий</button> <input name="comment_post_ID" value="2338" type="hidden"> <input name="comment_parent_ID" value="" type="hidden"> <input name="ref" value="http%3A//dimox.name/styling-select-boxes-using-jquery-css/" type="hidden"> </p> </form> <form action="" method="post" id="solo-subscribe-to-comments"> <input name="solo-comment-subscribe" value="solo-comment-subscribe" type="hidden"> <input name="postid" value="2338" type="hidden"> <input name="ref" value="http%3A//dimox.name/styling-select-boxes-using-jquery-css/" type="hidden"> <div class="solo-subscribe-to-comments"> <div class="title">Подписаться, не комментируя</div> <input name="email" id="solo-subscribe-email" size="22" data-placeholder="Ваш e-mail" type="email"> <button type="submit" name="submit" id="solo-subscribe"> Подписаться </button> </div> </form> <div class="postfeed"><a href="http://dimox.name/jquery-form-styler/feed/" rel="nofollow">RSS комментариев данной статьи</a></div> </div><!-- .post --> </div><!-- #respond --> <!--/noindex--> <!-- #more --> </div><!-- #text --> </div><!-- #content --> <aside> <div class="radv"> <script> (function(){
+ 					var rb = document.createElement('script');
+ 					d = new Date();
+ 					d.setHours(0);
+ 					d.setMinutes(0);
+ 					d.setSeconds(0);
+ 					d.setMilliseconds(0);
+ 					rb.type = 'text/javascript';
+ 					rb.async = true;
+ 					rb.src = '//s1.rotaban.ru/rotaban.js?v=' + d.getTime();
+ 					(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(rb);
+ 				})();
+ 				</script> <div class="a125x125"><div id="rotaban_186135" class="rotaban_186135 rotaban"><a href="http://webartex.ru/?r=jyzfxjgz" onclick="_rotaban.rocks('click', '57109', '186135');" class="rb_ad1 odd" title="В ТОП-10 за 3 недели!!! Биржа статей нового поколения WebArtex" id="rb_57109" target="_blank"><img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/4612438e-2502-4862-b318-27d7da80b783.gif" alt="В ТОП-10 за 3 недели!!! Биржа статей нового поколения WebArtex" height="125" width="125"></a></div></div> <div class="a125x125"><a href="http://coolvds.com/tarifs.php" target="_blank" rel="nofollow"><img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/coolvds.gif" alt="CoolVDS.com" height="125" width="125"></a></div> </div><!-- .radv --> <div style="margin-top: 0px;" class="section box visible linkwall"> <script src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/reflink.js"></script><div style="text-align:center;background:#fff;border-radius:5px;min-height:30px;padding:5px 0;"><a href="http://linkwall.ru/ref/676.html" style="color:#444;padding:5px;font-weight:bold;display:block;">LinkWall.ru</a><a href="http://mikylinbeer.dn.ua/" onclick="LinkWallClick(8119);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Микулинское пиво в Донецке</a><a href="http://pochesnomu.ru/wppage/kejs-1/" onclick="LinkWallClick(7985);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Сайты приносят деньги - доказано</a><a href="http://web-top-plus.ru/wordpress/chto-nuzhno-dlya-sozdaniya-bloga-na-wordpress/" onclick="LinkWallClick(7905);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Создать блог на WordPress</a><a href="http://msaveliev.ru/f/" onclick="LinkWallClick(7462);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Конференция для веб-мастеров</a><a href="http://%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0.%D1%80%D1%84/category/torgovaja-lavka/" onclick="LinkWallClick(7288);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Увеличение показателей тИЦ и PR</a><span style="display:block;color:#444;float:left;background:#F5E58A;font-size:9px;padding:2px;margin:10px 0 10px 10px;">15.60 руб.</span><a href="http://linkwall.ru/links/add/844.html" style="display:inline;border:0;float:right;color:#00A0E3;padding:0 0 0 21px;background:url(http://linkwall.ru/images/ml.gif) no-repeat left center;margin-top:10px;margin-right:10px;" target="_blank">Купить ссылку</a><img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/0.gif" id="LinkWallClickCounter" alt="counter" style="border:0;width:1px;height:1px;box-shadow:0;"><br style="clear:both;"></div> </div><!-- .section --> <div class="section"> <ul class="tabs"> <li class="current">RSS-подписка</li> <li>Twitter</li> </ul> <div class="box visible"> <a id="rss" href="http://dimox.name/feed/" target="_blank" title="RSS">RSS</a> <ul class="subscribes"> <li><a id="rss2" href="http://dimox.name/feed/" target="_blank">← <strong>RSS блога</strong></a></li> <li><a href="http://dimox.name/url.php?http://fusion.google.com/add?feedurl=http://dimox.name/feed/" target="_blank" rel="nofollow">Читать блог через Google</a></li> <li><a href="http://dimox.name/url.php?http://lenta.yandex.ru/settings.xml?name=feed&amp;url=http://dimox.name/feed/" target="_blank" rel="nofollow">Читать блог через Яндекс</a></li> </ul> <form id="rss2mail" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=Dimox', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"> <label>E-mail рассылка блога</label> <input name="email" class="rss2mail" data-placeholder="Ваш e-mail" type="email"> <input value="Dimox" name="uri" type="hidden"> <input name="loc" value="ru_RU" type="hidden"> <button type="submit" class="go">ok</button> </form> <div id="feedcount"><span>2300+</span> подписчиков</div> <div class="clear"></div> </div> <div class="box"> <a id="twitter" href="http://dimox.name/url.php?http://twitter.com/Dimox_ru" target="_blank" title="Twitter">Twitter</a> <ul class="subscribes twitter"> <li><a id="twitter2" href="http://dimox.name/url.php?http://twitter.com/Dimox_ru" target="_blank">← <strong>Мой Twitter</strong></a></li> <li><div id="twittercount"> <span>3055</span> фолловеров</div></li> </ul> <div class="clear"></div> </div> </div><!-- .section --> <div class="section"> <h3>Для веб-мастера</h3> <div class="box visible" id="forWebmasters"><ul>
+
+	<li><a href="http://dimox.name/goto/webartex.php" style="color: #FF7E15; border-color: #FF7E15">WebArtex</a> - статейная биржа нового поколения от создателей SeoPult. Только качественные площадки (строгий отбор).</li>
+
+	<li><a href="http://dimox.name/goto/miralinks.php" style="color: #B95012; border-color: #B95012">Miralinks</a> - продвижение статьями, которые публикуются на достойных качественных площадках, с разовой оплатой и гарантией размещения.</li>
+
+	<li><a href="http://dimox.name/goto/ggl.php" style="color: #1F85AB; border-color: #1F85AB">GoGetLinks</a> - популярная система для получения качественных ссылок в обзорах с размещением навсегда.</li>
+
+	<li><a href="http://dimox.name/goto/trustlink.php" style="color: #63A71A; border-color: #63A71A">TrustLink</a>
+ - биржа трастовых ссылок. Для оптимизатора - много качественных 
+площадок (оплата за время размещения), для веб-мастера - быстрый и 
+гарантированный доход.</li>
+
+	<li><a href="http://dimox.name/goto/sape.php" style="color: #2F92D5; border-color: #2F92D5">Sape</a> - самая популярная в Рунете ссылочная биржа, позволяющая монетизировать и продвигать сайты различными способами.</li>
+
+	<li><a href="http://dimox.name/goto/linkfeed.php" style="color: #0066CC; border-color: #0066CC">LinkFeed</a> - ссылочная биржа Рунета. Достойная альтернатива Sape, как в плане продвижения, так и в плане заработка для веб-мастера.</li>
+
+	<li><a href="http://dimox.name/goto/profit-partner.php" style="color: #FE8212; border-color: #FE8212">Profit-Partner</a> - Заработок на контекстной рекламе Яндекса при отличной поддержке официального центра обслуживания партнеров.</li>
+
+	<li><a href="http://dimox.name/goto/liex.php" style="color: #299DC3; border-color: #299DC3">Liex</a>
+ - ручное и автоматизированное размещение статей с фильтрацией по 
+большому количеству параметров, с повременной и разовой оплатой.</li>
+
+</ul></div> </div><!-- .section --> <div class="section"> <ul class="tabs"> <li class="current">Последние</li> <li>Популярные</li> <li>Рубрики</li> </ul> <div class="box visible recent"> <ul> <li><a href="http://dimox.name/popup-window-on-first-web-site-visit/">Всплывающее окно при первом посещении сайта на jQuery</a> <span>2 апреля 2013 г. (комментов: 12)</span></li> <li><a href="http://dimox.name/opera-features/">Полезные мелочи в браузере Opera, от которых сложно отказаться</a> <span>24 февраля 2013 г. (комментов: 32)</span></li> <li><a href="http://dimox.name/beautiful-tags-markup/">Верстка красивых тегов для сайта + бонус</a> <span>11 января 2013 г. (комментов: 16)</span></li> <li><a href="http://dimox.name/google-chrome-bug/">Баг в Google Chrome (текст выходит за пределы блока)</a> <span>30 октября 2012 г. (комментов: 25)</span></li> <li><a href="http://dimox.name/css-properties-from-ie7-to-ie8/">Зеленый свет CSS-свойствам при верстке под IE8 и выше</a> <span>18 октября 2012 г. (комментов: 20)</span></li> <li><a href="http://dimox.name/jquery-form-styler/">jQuery-плагин для стилизации элементов html-форм (input[type=checkbox], input[type=radio], input[type=file], select)</a> <span>9 октября 2012 г. (комментов: 402)</span></li> <li><a href="http://dimox.name/styling-input-radio-using-jquery-css/">jQuery-плагин для стилизации input[type="radio"]</a> <span>29 августа 2012 г. (комментов: 38)</span></li> <li><a href="http://dimox.name/styling-input-checkboxes-using-jquery-css/">jQuery-плагин для стилизации input[type="checkbox"]</a> <span>20 августа 2012 г. (комментов: 35)</span></li> <li><a href="http://dimox.name/search-form-markup-html5-css3/">Пример верстки поисковой формы для сайта на HTML5 и CSS3</a> <span>19 июля 2012 г. (комментов: 62)</span></li> <li><a href="http://dimox.name/search-form-markup/">Пример верстки поисковой формы для сайта</a> <span>18 июля 2012 г. (комментов: 54)</span></li> </ul> </div> <div class="box popular"> <ul><li><a href="http://dimox.name/universal-jquery-tabs-script/">Универсальный jQuery-скрипт для блоков с вкладками (табами) <span>2 марта 2010 г. (комментов: 731)</span></a></li> <li><a href="http://dimox.name/personal_css_hacks_for_opera_firefox_ie/">Персональные CSS-хаки для Internet Explorer, Opera, FireFox, Safari, Google Chrome <span>8 августа 2007 г. (комментов: 109)</span></a></li> <li><a href="http://dimox.name/press_footer_bottom_with_css/">Как с помощью CSS прижать footer к низу окна браузера <span>4 августа 2007 г. (комментов: 96)</span></a></li> <li><a href="http://dimox.name/from_table_to_div/">Переходим с TABLE'ичной верстки на DIV'овую <span>24 января 2007 г. (комментов: 90)</span></a></li> <li><a href="http://dimox.name/10-fixes-for-ie6/">10 фиксов, решающих проблемы Internet Explorer 6 <span>7 марта 2009 г. (комментов: 58)</span></a></li> <li><a href="http://dimox.name/quick-new-site-indexation/">Рецепт быстрой индексации нового сайта Яндексом и Гуглом <span>23 октября 2007 г. (комментов: 83)</span></a></li> <li><a href="http://dimox.name/moving-the-site-on-new-domain/">Безболезненный перенос сайта на WordPress на новый домен <span>14 октября 2007 г. (комментов: 132)</span></a></li> <li><a href="http://dimox.name/downloading-of-the-content-on-wordpress-with-ajax/">Загрузка части контента на WordPress с помощью AJAX <span>14 октября 2011 г. (комментов: 120)</span></a></li> <li><a href="http://dimox.name/share42-com-social-bookmarking-and-networking-script/">Share42.com - Скрипт кнопок социальных закладок и сетей <span>8 ноября 2010 г. (комментов: 319)</span></a></li> <li><a href="http://dimox.name/wordpress-breadcrumbs-without-a-plugin/">"Хлебные крошки" для WordPress без использования плагина <span>3 февраля 2010 г. (комментов: 271)</span></a></li> </ul><!-- popular Posts took 40.023 ms --> </div> <div class="box" id="cats"> <ul> <li class="cat-item cat-item-8"><a href="http://dimox.name/category/css-markup/" title="Просмотреть все записи в рубрике CSS-верстка">CSS-верстка</a> </li> <li class="cat-item cat-item-77"><a href="http://dimox.name/category/jquery/" title="Просмотреть все записи в рубрике jQuery">jQuery</a> </li> <li class="cat-item cat-item-9"><a href="http://dimox.name/category/wordpress/" title="Просмотреть все записи в рубрике WordPress">WordPress</a> </li> <li class="cat-item cat-item-10"><a href="http://dimox.name/category/browsers/" title="Просмотреть все записи в рубрике Браузеры">Браузеры</a> </li> <li class="cat-item cat-item-1"><a href="http://dimox.name/category/web-mastering/" title="Просмотреть все записи в рубрике Веб-мастеринг">Веб-мастеринг</a> </li> <li class="cat-item cat-item-7"><a href="http://dimox.name/category/life/" title="Просмотреть все записи в рубрике Житейское">Житейское</a> </li> <li class="cat-item cat-item-5"><a href="http://dimox.name/category/internet/" title="Просмотреть все записи в рубрике Интернет">Интернет</a> </li> <li class="cat-item cat-item-6"><a href="http://dimox.name/category/moneymaking/" title="Просмотреть все записи в рубрике Манимейкинг">Манимейкинг</a> </li> <li class="cat-item cat-item-107"><a href="http://dimox.name/category/news/" title="Просмотреть все записи в рубрике Новости">Новости</a> </li> <li class="cat-item cat-item-121"><a href="http://dimox.name/category/interesting/" title="Просмотреть все записи в рубрике Познавательно">Познавательно</a> </li> <li class="cat-item cat-item-94"><a href="http://dimox.name/category/soft/" title="Просмотреть все записи в рубрике Программы">Программы</a> </li> <li class="cat-item cat-item-4"><a href="http://dimox.name/category/promotion/" title="Просмотреть все записи в рубрике Продвижение сайта">Продвижение сайта</a> </li> </ul> </div> </div><!-- .section --> <style> .linkwall.fixed {
+ 	position: fixed;
+ 	top: 22px;
+ 	width: 340px;
+ }
+ </style> <script> (function($) {
+ $(function() {
+ 
+ 	var lw = $('div.linkwall');
+ 	var offset = $('aside').outerHeight() + 640;
+ 	if ( $(window).scrollTop() > offset ) lw.addClass('fixed animated').css({'margin-top': -300}).animate({'margin-top': 0}, 800);
+ 	$(window).scroll(function (event) {
+ 		if ($(this).scrollTop() >= offset) {
+ 			lw.not('.animated').css({'margin-top': -300}).stop();
+ 			lw.addClass('fixed animated').animate({'margin-top': 0}, 500);
+ 		} else {
+ 			lw.removeClass('fixed animated');
+ 		}
+ 	});
+ 
+ })
+ })(jQuery)
+ </script> </aside> </section> <form method="get" action="/" id="search"> <input placeholder="поиск" value="поиск" name="s" type="search"> <input value="" type="submit"> </form> </div><!-- #wrapper --> <footer> © 2006-2013 Dimox, <a href="http://dimox.name/">dimox.name</a>. <span>Все права защищены. Перепечатка запрещена. <!--MAXSITECACHE--></span> <div id="liru"> <script><!--
+ document.write("<img src='http://counter.yadro.ru/hit?t18.1;r"+
+ escape(document.referrer)+((typeof(screen)=="undefined")?"":
+ ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+ ";"+Math.random()+
+ "' alt='' title='LiveInternet: показано число просмотров за 24"+
+ " часа, посетителей за 24 часа и за сегодня' "+
+ "border=0 width=88 height=31>")
+ //--></script><img src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/hit.gif" alt="" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" border="0" height="31" width="88"> </div> <table id="li2"> <tbody><tr> <td>Сегодня:</td> <td>просмотров - <strong>775</strong>,</td> <td>посетителей - <strong>434</strong></td> </tr> <tr> <td>За 24 часа: </td> <td>просмотров - <strong>2095</strong>,</td> <td>посетителей - <strong>1022</strong></td> </tr> </tbody></table> <script> //<![CDATA[
+ yandex_partner_id = 34314;
+ yandex_site_bg_color = 'FFFFFF';
+ yandex_stat_id = 6;
+ yandex_site_charset = 'utf-8';
+ yandex_ad_format = 'direct';
+ yandex_font_size = 1;
+ yandex_font_family = 'courier new';
+ yandex_direct_type = 'flat';
+ yandex_direct_border_type = 'ad';
+ yandex_direct_limit = 2;
+ yandex_direct_bg_color = 'FFFFFF';
+ yandex_direct_border_color = 'E9E9E9';
+ yandex_direct_title_color = '0094D6';
+ yandex_direct_url_color = '666666';
+ yandex_direct_all_color = '777777';
+ yandex_direct_text_color = '000000';
+ yandex_direct_hover_color = 'FF7700';
+ yandex_direct_favicon = true;
+ yandex_direct_place = 'ya_direct';
+ document.write('<sc'+'ript type="text/javascript" src="http://an.yandex.ru/system/context.js"></sc'+'ript>');
+ //]]> </script><script type="text/javascript" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/context.js"></script><script type="text/javascript" src="jQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B8%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20html-%D1%84%D0%BE%D1%80%D0%BC%20%28input%5Btype=checkbox%5D,%20input%5Btype=radio%5D,%20input%5Btype=file%5D,%20select%29%20%C2%BB%20%D0%A1%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%B2%D0%B5%D0%B1%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_files/context_static_r601.js" yandex_load_check="yes"></script><style type="text/css">
+#ya_partner_1 .ya-partner__title-link-text:visited {
+    color: #0094D6 !important;
+}
+ #ya_partner_1 .ya-partner__title-link-text:link {
+    color: #0094D6 !important;
+}
+ #ya_partner_1 .ya-partner__title-link-text:hover {
+    color: #FF7700 !important;
+}
+ #ya_partner_1 .ya-partner__title-link-text {
+    color: #0094D6 !important;
+    font-size: 130% !important;
+}
+ #ya_partner_1 .ya-partner__region {
+    color: #666666 !important;
+}
+ #ya_partner_1 .ya-partner__domain {
+    color: #666666 !important;
+}
+ #ya_partner_1 .ya-partner__address {
+    color: #666666 !important;
+}
+ #ya_partner_1 .ya-partner {
+    font-family: courier new, monospace !important;
+    color: #000000 !important;
+    font-size: 1em !important;
+    border-radius: 0 !important;
+}
+ #ya_partner_1 .ya-partner__text {
+    font-family: courier new, monospace !important;
+    color: #000000 !important;
+}
+ #ya_partner_1 .ya-partner__item {
+    background: #FFFFFF !important;
+    border: 1px solid #E9E9E9 !important;
+    border-radius: 0 !important;
+}
+ #ya_partner_1 .ya-partner__wrap-fit {
+    border-radius: 0 !important;
+}
+ #ya_partner_1 .ya-partner__warn {
+    border: 1px solid #D8D8D8 !important;
+    background-color: #FFFFFF !important;
+}
+ #ya_partner_1 .ya-partner__agewarn {
+    border: 1px solid #D8D8D8 !important;
+    background-color: #FFFFFF !important;
+}
+ #ya_partner_1 a.ya-partner__ads-link-r:link {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_1 a.ya-partner__ads-link-r:hover {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_1 a.ya-partner__ads-link-r:visited {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_1 a.ya-partner__ads-link-l:link {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_1 a.ya-partner__ads-link-l:hover {
+    text-decoration:  !important;
+    color: #000 !important;
+}
+ #ya_partner_1 a.ya-partner__ads-link-l:visited {
+    text-decoration:  !important;
+    color: #000 !important;
+}</style> </footer>   <div id="bquote"><a href="#">вставить цитату в поле ответа</a></div></body></html>

@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+	<meta charset="windows-1251">
+	<title>Xoverlay - Сборка CSS3 эффектов при наведении | pcvector.net</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/xoverlay.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="topHeader">
+	<a class="backArticle" href="http://pcvector.net/scripts/image-effects/449-xoverlay-css3-effekty-navedeniya.html">Назад к статье &gt;&gt;&gt;</a>
+</div>
+<div class="container">
+<h1><span class="x">X</span>overlay <span class="volume">v1.0</span></h1><br>
+<nav class="navbar navbar-default">
+<ul class="nav navbar-nav">
+	<li><a href="#iconshapes">Формы иконок</a></li>
+	<li><a href="#iconcolours">Цвета иконок</a></li>
+	<li><a href="#captioneffects">Эффекты с caption (текстом)</a></li>
+	<li><a href="#iconeffects">Эффекты с icon (иконками)</a></li>
+</ul>
+<ul class="nav navbar-nav pull-right">
+	<li><a data-toggle="modal" data-target="#installation" href="javascript:void(0)"><b><i class="fa fa-cog"></i> Установка</b></a></li>
+</ul>
+</nav>
+<!-- Info -->
+<div class="row">
+<div class="container">
+<div class="well well-sm info">
+<h2>Информация</h2>
+<p>
+Xoverlay представляет из себя набор CSS стилей, который поможет довольно просто добавлять современные эффекты наведения на ваш сайт. Собрано более 50 эффектов, но если вы будете их комбинировать, то вариантов будет еще на несколько десятков больше - более 150 эффектов.<br><br>
+Замечание:Прежде чем добавить, xoverlay.css, загрузите и добавьте иконочные шрифты <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>.
+</p>
+</div>
+</div>
+</div>
+<!-- Icon shapes -->
+<div id="iconshapes" class="row">
+<div class="container">
+<div class="panel panel-primary">
+<div class="panel-heading"><h4>Формы иконок</h4></div>
+<div class="panel-body">
+&lt;div class="col-md-3"&gt;<br>
+&lt;div class="xoverlay x-simple"&gt;<br>
+&lt;img class="x-img-main" src="images/picture-1.png" /&gt;<br>
+&lt;div class="xoverlay-box"&gt;<br>
+&lt;div class="xoverlay-data"&gt;<br>
+<span class="point-out">&lt;span class="x-circle x-white"&gt;&lt;a href="#"&gt;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/span&gt;</span><br>
+...<br>
+...<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;
+</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-2.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="<span class="point-out">x-circle</span> x-white"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-2.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-square x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-square x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-square x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="<span class="point-out">x-square</span> x-white"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-2.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-lemon x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-lemon x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-lemon x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="<span class="point-out">x-lemon</span> x-white"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-2.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-balloon x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-balloon x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-balloon x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="<span class="point-out">x-balloon</span> x-white"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-2.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-smooth x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-smooth x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-smooth x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="<span class="point-out">x-smooth</span> x-white"</div></div>
+</div>
+
+</div>
+
+<!-- Icon Colours -->
+<div id="iconcolours" class="row">
+<div class="container">
+<div class="panel panel-primary">
+<div class="panel-heading"><h4>Цвета иконок</h4></div>
+<div class="panel-body">
+&lt;div class="col-md-3"&gt;<br>
+&lt;div class="xoverlay x-simple"&gt;<br>
+&lt;img class="x-img-main" src="images/picture-3.png" /&gt;<br>
+&lt;div class="xoverlay-box"&gt;<br>
+&lt;div class="xoverlay-data"&gt;<br>
+<span class="point-out">&lt;span class="x-circle x-white"&gt;&lt;a href="#"&gt;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/span&gt;</span><br>
+...<br>
+...<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;
+</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-3.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="x-circle <span class="point-out">x-white</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-3.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-square x-yellow"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-square x-yellow"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-square x-yellow"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="x-square <span class="point-out">x-yellow</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-3.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-lemon x-green"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-lemon x-green"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-lemon x-green"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="x-lemon <span class="point-out">x-green</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-3.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-balloon x-blue"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-balloon x-blue"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-balloon x-blue"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="x-balloon <span class="point-out">x-blue</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-3.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-smooth x-red"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-smooth x-red"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-smooth x-red"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="x-smooth <span class="point-out">x-red</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-3.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-smooth x-orange"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-smooth x-orange"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-smooth x-orange"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="x-smooth <span class="point-out">x-orange</span>"</div></div>
+</div>
+
+</div>
+
+<!-- Text and Icon Effects -->
+<div id="captioneffects" class="row">
+<div class="container">
+<div class="panel panel-primary">
+<div class="panel-heading"><h4>Эффекты с caption (текстом)</h4></div>
+<div class="panel-body">
+&lt;div class="col-md-3"&gt;<br>
+<span class="point-out">&lt;div class="xoverlay x-simple"&gt;</span><br>
+&lt;img class="x-img-main" src="images/picture-1.png" /&gt;<br>
+&lt;div class="xoverlay-box"&gt;<br>
+&lt;div class="xoverlay-data"&gt;<br>
+...<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;
+</div></div>
+</div>
+
+
+<!-- Simple Opacity -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-simple</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-simple</span>"</div></div>
+</div>
+
+<!-- Slide Up -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-bottom</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-bottom</span>"</div></div>
+</div>
+
+<!-- Slide Down -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-top</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-top</span>"</div></div>
+</div>
+
+<!-- Slide Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-left</span>"</div></div>
+</div>
+
+<!-- Slide Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-right</span>"</div></div>
+</div>
+
+<!-- Slide Top Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-top-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-top-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-top-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-top-left</span>"</div></div>
+</div>
+
+<!-- Slide Top Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-top-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-top-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-top-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-top-right</span>"</div></div>
+</div>
+
+<!-- Slide Bottom Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-bottom-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-bottom-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-bottom-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-bottom-left</span>"</div></div>
+</div>
+
+<!-- Slide Bottom Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-bottom-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-bottom-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-bottom-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-bottom-right</span>"</div></div>
+</div>
+
+<!-- Flip Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-left</span>"</div></div>
+</div>
+
+<!-- Flip Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-right</span>"</div></div>
+</div>
+
+<!-- Flip Top -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-top</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-top</span>"</div></div>
+</div>
+
+<!-- Flip Bottom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-bottom</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-flip-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-flip-bottom</span>"</div></div>
+</div>
+
+<!-- Wobble Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-left</span>"</div></div>
+</div>
+
+<!-- Wobble Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-right</span>"</div></div>
+</div>
+
+<!-- Wobble Top -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-top</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-top</span>"</div></div>
+</div>
+
+<!-- Wobble Bottom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-bottom</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-wobble-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-wobble-bottom</span>"</div></div>
+</div>
+
+<!-- Push Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-fpush-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-fpush-left</span>"</div></div>
+</div>
+
+<!-- Push Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-fpush-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-fpush-right</span>"</div></div>
+</div>
+
+<!-- Push Top -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-fpush-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-fpush-top</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-fpush-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-fpush-top</span>"</div></div>
+</div>
+
+<!-- Push Bottom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-fpush-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-fpush-bottom</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-fpush-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-fpush-bottom</span>"</div></div>
+</div>
+<!-- Push Full Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-left</span>"</div></div>
+</div>
+
+<!-- Push Full Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-right</span>"</div></div>
+</div>
+
+<!-- Push Full Top -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-top</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-top">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-top</span>"</div></div>
+</div>
+
+<!-- Push Full Bottom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-bottom</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-pushfull-bottom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-pushfull-bottom</span>"</div></div>
+</div>
+
+<!-- Image Rotate Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-imgrotate-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-imgrotate-left</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-imgrotate-left">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-imgrotate-left</span>"</div></div>
+</div>
+
+<!-- Image Rotate Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-imgrotate-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-imgrotate-right</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-imgrotate-right">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-imgrotate-right</span>"</div></div>
+</div>
+
+<!--Zoom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom</span>"</div></div>
+</div>
+
+<!--Zoom In Out -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-inout">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-inout</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-inout">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-inout</span>"</div></div>
+</div>
+
+<!-- Zoom Rotate -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-rotate">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-rotate</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-rotate">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-rotate</span>"</div></div>
+</div>
+
+<!-- Zoom RotateY -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-rotatey">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-rotatey</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-rotatey">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-rotatey</span>"</div></div>
+</div>
+
+<!-- Zoom RotateX -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-rotatex">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-rotatex</span>"</div></div>
+</div>
+
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-zoom-rotatex">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data">
+<h2>Заголовок</h2><p>Lorem ipsum dolor sit amet, quot prompta mei ex. Ponderum dissentias cotidieque usu et, nonumes tincidunt ei qui.</p><a class="x-more" href="#">Подробнее</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay <span class="point-out">x-zoom-rotatex</span>"</div></div>
+</div>
+
+</div>
+
+<div id="iconeffects" class="row">
+
+<div class="container">
+<div class="panel panel-primary">
+<div class="panel-heading"><h4>Эффекты с иконками</h4></div>
+<div class="panel-body">
+&lt;div class="col-md-3"&gt;<br>
+&lt;div class="xoverlay x-simple"&gt;<br>
+&lt;img class="x-img-main" src="images/picture-1.png"  /&gt;<br>
+&lt;div class="xoverlay-box"&gt;<br>
+<span class="point-out">&lt;div class="xoverlay-data x-icon-top-bottom"&gt;</span><br>
+...<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;/div&gt;
+</div></div>
+</div>
+
+<!-- Slide Icon Top Bottom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-top-bottom">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-top-bottom</span>"</div></div>
+</div>
+
+<!-- Slide Icon Left Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-left-right">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-left-right</span>"</div></div>
+</div>
+
+<!-- Zoom Icon -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-zoom">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-zoom</span>"</div></div>
+</div>
+
+<!-- Icon Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-left">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-left</span>"</div></div>
+</div>
+
+<!-- Icon Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-right">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-right</span>"</div></div>
+</div>
+
+<!-- Icon Top -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-top">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-top</span>"</div></div>
+</div>
+
+<!-- Icon Bottom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-bottom">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-bottom</span>"</div></div>
+</div>
+
+<!-- Slide Up Icon zoom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-zoomup">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-zoomup</span>"</div></div>
+</div>
+
+<!-- Slide Up Icon zoom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-zoomdown">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-zoomdown</span>"</div></div>
+</div>
+
+<!-- Icon Right Zoom -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-rotatezoom">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-rotatezoom</span>"</div></div>
+</div>
+
+<!-- Icon Zoom Out To In -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-zoomoutin">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-zoomoutin</span>"</div></div>
+</div>
+
+<!-- Icon All Rotate Zoom In -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-allzoomin">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-allzoomin</span>"</div></div>
+</div>
+
+<!-- Icon All Rotate Zoom Out -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-allzoomout">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-allzoomout</span>"</div></div>
+</div>
+
+<!-- Slide Icon Left Top Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-left-top-right">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-left-top-right</span>"</div></div>
+</div>
+
+<!-- Slide Icon Left Bottom Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-left-bottom-right">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-left-bottom-right</span>"</div></div>
+</div>
+
+<!-- Flip Icon ZoomIn Individual -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-flip-zoomind">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-flip-zoomind</span>"</div></div>
+</div>
+
+<!-- Flip Icon ZoomIn Individual 2 -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-flip-zoomind2">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-flip-zoomind2</span>"</div></div>
+</div>
+
+<!-- Icon All Slide Down -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-all-slidedown">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-all-slidedown</span>"</div></div>
+</div>
+
+<!-- Icon All Slide Down -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-all-slidetop">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-all-slidetop</span>"</div></div>
+</div>
+
+<!-- Icon All Slide Left -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-all-slideleft">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-all-slideleft</span>"</div></div>
+</div>
+
+<!-- Icon All Slide Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-all-slideright">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-all-slideright</span>"</div></div>
+</div>
+
+<!-- Zoom Icon Left Right -->
+<div class="col-md-3 col-sm-6 col-xs-6 xdefault-padding">
+<div class="col-md-12">
+<div class="xoverlay x-simple">
+<img class="x-img-main" src="images/picture-1.png" alt="">
+<div class="xoverlay-box">
+<div class="xoverlay-data x-icon-lr-zoom">
+<span class="x-circle x-white"><a href="#"><i class="fa fa-facebook"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-twitter"></i></a></span><span class="x-circle x-white"><a href="#"><i class="fa fa-pinterest"></i></a></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12"><div class="well well-sm">class="xoverlay-data <span class="point-out">x-icon-lr-zoom</span>"</div></div>
+</div>
+
+</div>
+<br><br>
+</div>	
+
+<!-- Installation -->
+<div class="modal fade" id="installation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">?</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Установка</h4>
+      </div>
+      <div class="modal-body">
+       1) Скачать и добавить пакет шрифтов <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a><br>
+	   2) Добавить CSS файл с комплектом эффектов Xoverlay<br>
+	   3) HTML разметка будет представлять из-себя, что-то похожее на это:<br><br>
+	    <pre>		&lt;div class="col-md-3"&gt;
+		&lt;div class="xoverlay x-simple"&gt;
+		&lt;img class="x-img-main" src="images/picture-1.png" /&gt;
+		&lt;div class="xoverlay-box"&gt;
+		&lt;div class="xoverlay-data"&gt;
+		...
+		...
+		...
+		&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+		4) Добавляем иконку или описание внутрь нашей разметки<br><br>
+		Добавляем icon<br>
+		<pre>&lt;span class="x-circle x-white"&gt;&lt;a href="#"&gt;&lt;i class="fa fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/span&gt;</pre>
+		Добавляем caption<br>
+		<pre>&lt;h2&gt;Заголовок&lt;/h2&gt;<br>&lt;p&gt;It is a long established fact that a reader will be distracted by<br> the readable content of a page when looking at its layout&lt;/p&gt;<br>&lt;a class="x-more"  href="#"&gt;Подробнее&lt;/a&gt;</pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<!-- jquery scroll script -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".nav a").click(function(){
+		var thediv = $(this).attr("href");
+		$('html, body').animate({
+		scrollTop: $(thediv).offset().top
+		}, 500);
+	});
+});
+</script>
+<!-- pcvector.net -->
+	<script type="text/javascript" src="http://pcvector.net/templates/pcv/js/pcvector.js"></script>
+<!-- /pcvector.net -->
+</body></html>

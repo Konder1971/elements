@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="20px" viewBox="0 0 25 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>ic-checkmark</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Main-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main---Desktop-XL-2" transform="translate(-307.000000, -969.000000)" fill="#7F1F72" fill-rule="nonzero">
+            <g id="Features" transform="translate(0.000000, 804.000000)">
+                <g id="Group-2" transform="translate(306.000000, 159.000000)">
+                    <path d="M22.9840989,6.7765637 C23.2312392,6.5294749 23.6318959,6.5294749 23.8790362,6.7765637 L25.3705297,8.26810868 C25.61767,8.51524898 25.61767,8.91595717 25.3705297,9.16304597 L9.56014261,24.9734846 C9.31295082,25.2205734 8.91229412,25.2205734 8.66520532,24.9734846 L1.62935441,17.9376337 C1.38221411,17.6904419 1.38221411,17.2897852 1.62935441,17.0426449 L3.12084789,15.5511514 C3.36803968,15.3040111 3.76869638,15.3040111 4.01583668,15.5511514 L9.11267397,20.6479887 L22.9840989,6.7765637 Z" id="ic-checkmark"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

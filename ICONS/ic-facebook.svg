@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="24px" viewBox="0 0 14 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>ic-facebook</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Contact-Us/Share" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Share---Desktop" transform="translate(-633.000000, -385.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Overlay" transform="translate(515.000000, 293.000000)">
+                <g id="Group-3" transform="translate(100.000000, 79.000000)">
+                    <g id="Group-2">
+                        <path d="M30.5846398,26.5000179 L27.0835801,26.5000179 L27.0835801,36.9999928 L22.3881262,36.9999928 L22.3881262,26.5000179 L18.5729497,26.5000179 L18.5729497,22.1565834 L22.3881262,22.1565834 L22.3881262,18.8462733 C22.3881262,15.0803521 24.631529,13.0000501 28.0637413,13.0000501 C29.7076125,13.0000501 31.4270145,13.2934759 31.4270145,13.2934759 L31.4270145,16.9914651 L29.5323352,16.9914651 C27.6657625,16.9914651 27.0835801,18.1497418 27.0835801,19.3380019 L27.0835801,22.1565834 L31.2512337,22.1565834 L30.5846398,26.5000179 Z" id="ic-facebook"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

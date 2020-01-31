@@ -1,0 +1,126 @@
+(function($) {
+	$(function() {
+
+		var show_text = 'Предпросмотр';
+		var hide_text = 'Скрыть предпросмотр';
+		var textarea = $('textarea[name="comment-b6a1f"]');
+		var comment = '';
+
+		$(textarea).wrap('<div id="jquery-comment-wrap"></div>');
+		$(textarea).before('<div id="jquery-comment-preview"></div>');
+		$('#jquery-comment-preview').prepend('<div id="preview-tab">'+ show_text +'</div>');
+
+		$('#preview-tab').toggle(
+			function() {
+				comment = $(textarea).val();
+				if ($(textarea).val() != '') comment = comment + '\n\n';
+				comment_preview = comment.replace(/(<\/?)script/g,'$1noscript')
+				.replace(/(<code[^>]*?\s*>)((?:[^<]*(?!<\/code).)*)/img, function(s0, s1, s2){ return s1 + s2.replace(/</g, "&lt;").replace(/>/g, "&gt;"); })
+				.replace(/ (http\S+)/gi, ' <a href="$1">$1</a>')
+				.replace(/\n(http\S+)/gi, '\n<a href="$1">$1</a>')
+				.replace(/(<blockquote[^>]*>)/g, '\n$1')
+				.replace(/(<\/blockquote[^>]*>)/g, '$1\n')
+				.replace(/\r\n/g, '\n')
+				.replace(/\r/g, '\n')
+				.replace(/\n\n+/g, '\n\n')
+				.replace(/\n?(.+?)(?:\n\s*\n)/g, '<p>$1</p>')
+				.replace(/<p>\s*?<\/p>/g, '')
+				.replace(/<p>\s*(<\/?blockquote[^>]*>)\s*<\/p>/g, '$1')
+				.replace(/<p><blockquote([^>]*)>/ig, '<blockquote$1><p>')
+				.replace(/<\/blockquote><\/p>/ig, '</p></blockquote>')
+				.replace(/<p>\s*<blockquote([^>]*)>/ig, '<blockquote$1>')
+				.replace(/<\/blockquote>\s*<\/p>/ig, '</blockquote>')
+				.replace(/\s*\n\s*/g, '<br />');
+
+				var email = $('#email').val();
+				if(!email) email = '';
+				var md5 = MD5(email);
+				var avatar = '<img src="http://www.gravatar.com/avatar/' + md5 + '?s=46" alt="" class="avatar" />';
+				var author = $('#author').val();
+				var url = $('#url').val();
+				if(!$('#url').length) url = '';
+				if(!$('#author').length) author = '';
+				if(url != '') author = '<a href="'+ url +'">'+ author +'</a>';
+				var preview_html = '<ol id="comment-preview"><li><div class="cdata">'+ avatar +'           <div class="commenter">'+ author +'</div></div><div class="ctext">'+ comment_preview +'</div></li></ol>';
+
+				$(textarea).after('<div id="textarea_clone"></div>');
+				$(textarea).clone().appendTo($('#textarea_clone'));
+				$('#textarea_clone textarea').text(comment);
+				$('#textarea_clone').hide();
+				$(textarea).replaceWith('<div id="comment_preview"></div>');
+				$('#comment_preview').html(preview_html);
+				$(this).text(hide_text);
+				$('#html-editor a').hide();
+			},
+			function() {
+				$('#textarea_clone').remove();
+				$('#comment_preview').replaceWith(textarea);
+				comment = comment.replace(/\n\n+/g, '\n\n');
+				$(textarea).text(comment);
+				$(this).text(show_text);
+				$('#html-editor a').show();
+				$(textarea).focus();
+			}
+		)
+
+
+		var html_editor = '<div id="html-editor"><a href="#" tag="strong" id="ed_strong">жирный</a><a href="#" tag="a" id="ed_a">ссылка[href="" target="_blank"]</a><a href="#" tag="blockquote">цитата</a><a href="#" tag="tt" title="Внутристрочный код">tt</a><a href="#" tag="code">code[lang="text"]</a><a href="#" tag="code">CSS[lang="css"]</a><a href="#" tag="code">HTML[lang="html"]</a><a href="#" tag="code">JavaScript[lang="javascript"]</a><a href="#" tag="code">PHP[lang="php"]</a></div>';
+
+		$('#jquery-comment-preview').prepend(html_editor);
+
+		function insert(start, end, mid) {
+			var midText = '';
+			element = document.getElementById(textarea.attr('id'));
+			if (document.selection) {
+				element.focus();
+				sel = document.selection.createRange();
+				if (sel.text == '') midText = mid;
+				sel.text = start + sel.text + midText + end;
+			} else if (element.selectionStart || element.selectionStart == '0') {
+				element.focus();
+				var startPos = element.selectionStart;
+				var endPos = element.selectionEnd;
+				var selText = element.value.substring(startPos, endPos);
+				if (selText == '') midText = mid;
+				element.value = element.value.substring(0, startPos) + start + selText + midText + end + element.value.substring(endPos, element.value.length);
+			} else {
+				element.value += start + end;
+			}
+		}
+
+		$('#html-editor a').each(function() {
+			var text = $(this).html().replace(/\[(.*)\]/, '<b> $1</b>');
+			$(this).html(text);
+		})
+
+		$('#html-editor a').click(function() {
+			var mid = '';
+			var tag = $(this).attr('tag');
+			var attribs = $(this).find('b').text();
+			if (tag == 'a') {
+				var URL = prompt('Enter the URL', 'http://');
+				if (URL) {
+					var blank = '';
+					if (URL.indexOf(window.location.hostname) == -1) blank = ' target="_blank"';
+					attribs = attribs.replace('href=""', 'href="' + URL + '"' + blank);
+					attribs = attribs.replace(' target="_blank"', '');
+					var start = '<' + tag + attribs + '>';
+					var mid = URL;
+					var end = '</' + tag + '>';
+				} else {
+					var start = end = '';
+				}
+			} else if (tag == 'img') {
+				var start = '';
+				var end = ' <' + tag + attribs + ' />';
+			} else {
+				var start = '<' + tag + attribs + '>';
+				var end = '</' + tag + '>';
+			}
+			insert(start, end, mid);
+			return false;
+		})
+		$('#html-editor').append('<a href="http://dimox.name/jquery-comment-preview-wordpress-plugin/" target="_blank" title="О плагине">?</a>');
+
+	}) 
+})(jQuery)

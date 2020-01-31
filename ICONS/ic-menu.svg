@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>ic_menu</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pinned-Nav-Mobile" transform="translate(-1394.000000, -27.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Pinned-Nav">
+                <g id="ic-menu" transform="translate(1395.000000, 26.000000)">
+                    <path d="M18,11.001 L0,11.001 C-0.553,11.001 -1,10.552 -1,10.001 C-1,9.448 -0.553,9 0,9 L18,9 C18.552,9 19,9.448 19,10.001 C19,10.552 18.552,11.001 18,11.001 Z M18,3 L0,3 C-0.553,3 -1,2.552 -1,2.001 C-1,1.447 -0.553,1 0,1 L18,1 C18.552,1 19,1.447 19,2.001 C19,2.552 18.552,3 18,3 Z M0,17.001 L18,17.001 C18.552,17.001 19,17.447 19,18 C19,18.553 18.552,19.001 18,19.001 L0,19.001 C-0.553,19.001 -1,18.553 -1,18 C-1,17.447 -0.553,17.001 0,17.001 Z" id="ic_menu"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

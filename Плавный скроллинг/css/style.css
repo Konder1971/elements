@@ -1,0 +1,66 @@
+body {margin: 0; font: normal 14px/130% arial,verdana;}
+a, a:hover {color: #FFF; text-decoration: none;}
+
+#wrapper {position: relative; overflow: hidden;}
+#inner-wrapper {width: 960px; margin: 0 auto;}
+#header {height: 150px; background: #069;}
+#header h1 {font-size: 32px; line-height: 36px; color: #FFF; padding: 70px 0 0 30px; margin: 0 0 14px;}
+#content {min-height: 400px; overflow: hidden; padding: 20px 5%; color: #000; border:1px solid #f0f0f0; border-width: 0 1px}
+#footer {background: #f0f0f0; height: 25px; color: #777; padding: 10px;}
+
+#menu {background: #000;}
+#menu > ul {margin: 0; padding: 0; list-style-type: none;}
+#menu > ul:after {content: " "; display: block; line-height: 0; height: 0; width: 100%; clear: both;}
+#menu > ul > li {float: left;}
+#menu > ul > li + li {margin-left: 5px;}
+#menu > ul > li > a {
+	display: block; padding: 6px 12px; color: #FFF;
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+	    -ms-transition: all .3s;
+	     -o-transition: all .3s;
+	        transition: all .3s;
+}
+#menu > ul > li > a:hover {background: #E76600;}
+
+.post {width: 30%; margin-right: 5%; float: left; text-align: justify; cursor: pointer;}
+.post.last {margin-right: 0;}
+.post .post-title {text-transform: uppercase;}
+
+#ex2 .post,
+#ex3 .post,
+#ex4 .post {width: 45%; margin-right: 10%;}
+#ex2 .post.last,
+#ex3 .post.last,
+#ex4 .post.last {margin-right:0;}
+.separator {clear: both; overflow: hidden; height: 50px;}
+@media only screen and (max-width:960px){
+	#inner-wrapper {width: 80%;}
+}
+
+/* Back to top button */
+#back-to-top{
+	position:fixed; 
+	z-index: 999; 
+	display:none; 
+	bottom:70px; 
+	right:15px; 
+	cursor:pointer;
+}
+#back-to-top i{
+	width: 50px; 
+	height: 50px; 
+	display:block; 
+	color: #fff; 
+	background: #26ADE4 ; 
+	text-align:center; 
+	font-size:16px; 
+	line-height: 50px; 
+	border-radius: 5px;
+	-webkit-transition:  .3s all;
+	   -moz-transition:  .3s all;
+	    -ms-transition:  .3s all;
+	     -o-transition:  .3s all;
+	        transition:  .3s all;
+}
+#back-to-top i:hover{background:#333;}

@@ -1,0 +1,11 @@
+document.write('<div style="text-align:center;background:#fff;border-radius:5px;min-height:30px;padding:5px 0;">');document.write('<a href="http://linkwall.ru/ref/676.html" style="color:#444;padding:5px;font-weight:bold;display:block;">LinkWall.ru</a>');document.write('<a href="http://mikylinbeer.dn.ua/" onclick="LinkWallClick(8119);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Микулинское пиво в Донецке</a>');
+document.write('<a href="http://pochesnomu.ru/wppage/kejs-1/" onclick="LinkWallClick(7985);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Сайты приносят деньги - доказано</a>');
+document.write('<a href="http://web-top-plus.ru/wordpress/chto-nuzhno-dlya-sozdaniya-bloga-na-wordpress/" onclick="LinkWallClick(7905);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Создать блог на WordPress</a>');
+document.write('<a href="http://msaveliev.ru/f/" onclick="LinkWallClick(7462);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Конференция для веб-мастеров</a>');
+document.write('<a href="http://интернет-работа.рф/category/torgovaja-lavka/" onclick="LinkWallClick(7288);" style="display:block;color:#444;padding:5px;border-bottom:1px solid #e6e6e6;text-decoration:none;" target="_blank">Увеличение показателей тИЦ и PR</a>');
+document.write('<span style="display:block;color:#444;float:left;background:#F5E58A;font-size:9px;padding:2px;margin:10px 0 10px 10px;">15.60 руб.</span><a href="http://linkwall.ru/links/add/844.html" style="display:inline;border:0;float:right;color:#00A0E3;padding:0 0 0 21px;background:url(http://linkwall.ru/images/ml.gif) no-repeat left center;margin-top:10px;margin-right:10px;" target="_blank">Купить ссылку</a><img src="http://linkwall.ru/go/0.html" id="LinkWallClickCounter" alt="counter" style="border:0;width:1px;height:1px;box-shadow:0;" />');
+
+function LinkWallClick (id) {
+	document.getElementById('LinkWallClickCounter').src='http://linkwall.ru/go/'+id+'.html?rnd='+Math.random();
+}
+var testrandom = 0.521587203993512;document.write('<br style="clear:both;" /></div>');

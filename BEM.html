@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1 " />
+
+    <style type="text/css">
+        /* Block */
+        .btn {
+            text-decoration: none;
+            background-color: white;
+            color: #888;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 10px 5px;
+        }
+
+        /* Element */
+        .btn__price {
+            background-color: white;
+            color: #fff;
+            padding-right: 12px;
+            padding-left: 12px;
+            margin-right: -10px;
+            /* realign button text padding */
+            font-weight: 600;
+            background-color: #333;
+            opacity: .4;
+            border-radius: 5px 0 0 5px;
+        }
+
+        /* Element */
+        .btn__text {
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Modifier */
+        .btn--big {
+            font-size: 28px;
+            padding: 10px;
+            font-weight: 400;
+        }
+
+        /* Modifier */
+        .btn--blue {
+            border-color: #0074D9;
+            color: white;
+            background-color: #0074D9;
+        }
+
+        /* Modifier */
+        .btn--orange {
+            border-color: #FF4136;
+            color: white;
+            background-color: #FF4136;
+        }
+
+        /* Modifier */
+        .btn--green {
+            border-color: #3D9970;
+            color: white;
+            background-color: #3D9970;
+        }
+
+        body {
+            font-family: "fira-sans-2", sans-serif;
+            background-color: #ccc;
+        }
+
+
+        .accordion {
+            max-width: 600px;
+            margin: 4rem auto;
+            width: 90%;
+            font-family: "Raleway", sans-serif;
+            background: #f4f4f4;
+        }
+
+        .accordion__title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 1rem 1.5rem;
+            background: #5B5F97;
+            color: white;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .accordion__title:hover {
+            background: #484b77;
+        }
+
+        .accordion__copy {
+            display: none;
+            padding: 1rem 1.5rem 2rem 1.5rem;
+            color: gray;
+            line-height: 1.6;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .accordion__copy--open {
+            display: block;
+        }
+
+
+        .menu {
+            background: #0B2027;
+        }
+
+        .menu__trigger {
+            background: #16414f;
+            float: left;
+            padding: 1.3rem 0;
+            width: 10%;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            -webkit-transition: .3s;
+            transition: .3s;
+        }
+
+        @media (min-width: 30em) and (max-width: 40em) {
+            .menu__trigger {
+                width: 15%;
+            }
+        }
+
+        @media (max-width: 30em) {
+            .menu__trigger {
+                width: 15%;
+            }
+        }
+
+        .menu__trigger--active {
+            background: salmon;
+        }
+
+        .menu__row {
+            width: 90%;
+            font-size: 0;
+        }
+
+        .menu__list {
+            display: inline-block;
+            vertical-align: bottom;
+            font-size: 1.2rem;
+        }
+
+        .menu__link {
+            display: block;
+            text-decoration: none;
+            padding: 1.5rem;
+            color: white;
+            font-weight: 500;
+            -webkit-transition: .3s;
+            transition: .3s;
+        }
+
+        @media (max-width: 30em) {
+            .menu__link {
+                padding: 1.5rem 0.6rem;
+            }
+        }
+
+        .menu__link:hover {
+            background: #16414f;
+        }
+
+        .menu__dropdown {
+            padding: 1.6rem 0;
+            background: salmon;
+            display: none;
+        }
+
+        .menu__col {
+            width: 33.333%;
+            float: left;
+            padding: 2.5rem 1.5rem;
+        }
+
+        @media (min-width: 40em) and (max-width: 50em) {
+            .menu__col {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 30em) and (max-width: 40em) {
+            .menu__col {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 30em) {
+            .menu__col {
+                width: 100%;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Raleway";
+        }
+
+        .cf:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        h2 {
+            color: white;
+            font-size: 1.7rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 2vh;
+        }
+
+        p {
+            line-height: 1.5;
+            color: #fafafa;
+            font-weight: 500;
+        }
+    </style>
+
+</head>
+
+<body style="margin: 0 auto; padding: 0; max-width: 600px; font-size: 18px;">
+
+    Блок <br />
+    Название блока характеризует смысл («что это?» — «меню»: menu, «кнопка»: button), <br />
+    а не состояние («какой, как выглядит?» — «красный»: red, «большой»: big).
+
+    <br /><br />
+
+    Элемент.<br />
+    Составная часть блока, которая не может использоваться в отрыве от него.<br />
+    Особенности:<br />
+    Название элемента характеризует смысл («что это?» — «пункт»: item, «текст»: text), <br />
+    а не состояние («какой, как выглядит?» — «красный»: red, «большой»: big).<br />
+    Структура полного имени элемента соответствует схеме: имя-блока__имя-элемента.<br />
+    Имя элемента отделяется от имени блока двумя подчеркиваниями ( __ ).
+
+    <br /><br />
+
+    Модификатор.<br />
+    Cущность, определяющая внешний вид, состояние и поведение блока либо элемента.<br />
+    Особенности:<br />
+    Название модификатора характеризует внешний вид<br />
+    («какой размер?», «какая тема?» и т. п. — «размер»: size_s, «тема»: theme_islands),<br />
+    состояние («чем отличается от прочих?» — «отключен»: disabled, «фокусированный»: focused) <br />
+    и поведение («как ведет себя?», «как взаимодействует с пользователем?» — «направление»: directions_left-top).<br />
+    Имя модификатора отделяется от имени блока или элемента одним подчеркиванием ( _ или -- или префикс b- ).
+    <div class="b-header"></div>
+    <ul class="b-menu"></ul>
+    <span class="b-button"></span>
+    <div class="b-tabbed-pane"></div>
+    Иногда в качестве префикса используют сокращённое имя проекта. Например, OrangePool - op.
+    <div class="op-header"></div>
+    <ul class="op-menu"></ul>
+    <span class="op-button"></span>
+    <div class="op-tabbed-pane"></div>
+
+    <br /><br />
+
+    Микс.<br />
+    Прием, позволяющий использовать разные БЭМ-сущности на одном DOM-узле.<br />
+    Миксы позволяют:<br />
+    совмещать поведение и стили нескольких сущностей без дублирования кода;<br />
+    создавать семантически новые компоненты интерфейса на основе имеющихся.<br />
+    Миксы Позволяют:<br />
+    совмещать поведение и стили нескольких сущностей без дублирования кода;<br />
+    одинаково форматировать разные HTML-элементы.
+    Пример<br />
+    <!-- Блок `header` -->
+    <div class="header">
+        <!-- К блоку `search-form` примиксован элемент `search-form` блока `header`-->
+        <div class="search-form header__search-form"></div>
+    </div>
+    В данном примере мы совместили поведение и стили блока search-form и элемента search-form блока header.<br />
+    Такой подход позволяет нам задать внешнюю геометрию и позиционирование в элементе header__search-form, <br />
+    а сам блок search-form оставить универсальным. Таким образом, блок можно использовать в любом другом
+    окружении,<br />
+    потому что он не специфицирует никакие отступы. Это позволяет нам говорить о его независимости.
+
+    <br /><br />
+
+    Пример разметки<br />
+    <!-- Блок `header` -->
+    <header class="header">
+        <div class="logo header__logo">...</div>
+        <div class="search header__search">...</div>
+        <div class="user header__user">...</div>
+    </header>
+    <!-- Блок `header` -->
+    <header class="header">
+        <img class="logo">
+        <form class="search-form">
+            <input class="input">
+            <button class="button">submit</button>
+        </form>
+        <ul class="lang-switcher">
+            <li class="lang-switcher__item">
+                <a class="lang-switcher__link" href="#">en</a>
+            </li>
+            <li class="lang-switcher__item">
+                <a class="lang-switcher__link" href="#">ru</a>
+            </li>
+        </ul>
+    </header>
+    <header class="header">
+        <!--
+        `header__button` — элемент блока `header`;
+        `button` — блок;
+        `button_theme_islands` — модификатор.
+        -->
+        <button class="header__button button button_theme_islands">...</button>
+    </header>
+    <!-- Блок `logo` -->
+    <div class="logo logo_theme_islands">
+        <img src="URL" alt="logo" class="logo__img">
+    </div>
+    <!-- Блок `user` -->
+    <div class="user user_theme_islands">
+        <img src="URL" alt="user-logo" class="user__img">
+        ...
+    </div>
+    <ul class="menu">
+        <li class="menu__item">
+            <a class="menu__link" href="https://">...</a>
+        </li>
+    </ul>
+    <ul class="nav">
+        <li class="nav__item nav__item_active"><a class="nav__link">One</a></li>
+        <li class="nav__item"><a class="nav__link">Two</a></li>
+        <li class="nav__item"><a class="nav__link">Three</a></li>
+    </ul>
+    .nav__item<br />
+    {
+    padding: 4px 10px;
+    color: black;
+    }
+    <br />
+    .nav__item_active
+    {
+    font-weight: bold;
+    background: #ffc7c7;
+    }
+    <br />
+    Новые имена CSS-классов содержат всю информацию о структуре блока. А это значит, что больше не нужно просматривать
+    HTML-код страницы,
+    чтобы определить все зависимости. Cелектор всегда содержит знания о том, на какой блок или элемент влияют его
+    правила
+    (в данном случае на элемент nav__item).
+    Разработчику не придется думать о возможном существовании кнопки <div class="button active">Нажми меня!</div>,
+    так как еe CSS-правила будут записаны как .button_active и не будут зависеть от правил модификатора active для
+    пункта меню (nav__item_active).
+    <br /><br />
+
+    Первые правила именования — префиксы<br />
+    Так как распространенной проблемой в программировании является подбор имен,<br />
+    мы решили задавать имена блоков с помощью разных префиксов с разной семантикой:<br />
+    b- — обычные блоки;<br />
+    h- — обертки для нескольких блоков;<br />
+    l- — раскладки;<br />
+    g- — глобальные стили.
+    <br /><br />
+
+    <body class="page">
+        <!-- верхний колонтитул и навигация -->
+        <header class="header page__header">...</header>
+        <!-- нижний колонтитул -->
+        <footer class="footer page__footer">...</footer>
+    </body>
+    CSS-реализация:<br />
+    .page__header {
+    padding: 20px;
+    }
+    <br />
+    .page__footer {
+    padding: 50px;
+    }
+
+    <br /><br />
+
+    Методология БЭМ не рекомендует совмещать теги и классы в селекторе.<br />
+    Объединение тега и класса (например, button.button) повышает специфичность CSS-правил,
+    что усложняет задачу их переопределения. Это приводит к войнам значимости, при которых
+    таблицы стилей загружаются излишне сложными селекторами.<br />
+    Методология БЭМ не рекомендует использовать комбинированные селекторы.<br />
+    Комбинированные селекторы (например, .button.button_theme_islands) имеют более высокую специфичность,<br />
+    чем одиночные селекторы, что усложняет задачу их переопределения.
+
+    <br /><br />
+
+    Правила формирования имен<br />
+    block-name__elem-name_mod-name_mod-val<br />
+    Имена записываются латиницей в нижнем регистре.<br />
+    Для разделения слов в именах используется дефис (-).<br />
+    Имя блока задает пространство имен для его элементов и модификаторов.<br />
+    Имя элемента отделяется от имени блока двумя подчеркиваниями (__).<br />
+    Имя модификатора отделяется от имени блока или элемента одним подчеркиванием (_).<br />
+    Значение модификатора отделяется от имени модификатора одним подчеркиванием (_).<br />
+    Значение булевых модификаторов в имени не указывается.<br />
+    Важно!<br />
+    В методологии БЭМ не существует элементов элементов. <br />
+    Правила именования запрещают создавать элементы элементов,<br />
+    но в DOM-дереве элементы можно вкладывать друг в друга.
+
+    <br /><br />
+
+    Именование<br />
+    Имя селектора должно полно и точно описывать представляемую им БЭМ-сущность.<br />
+    В качестве примера рассмотрим следующие четыре строки CSS-кода:<br />
+    .button {}<br />
+    .button__icon {}<br />
+    .button__text {}<br />
+    .button_theme_islands {}<br />
+    С определенной долей вероятности можно предположить, что мы имеем дело с одним блоком и его HTML-реализация выглядит
+    следующим образом:<br />
+    <button class="button button_theme_islands">
+        <span class="button__icon"></span>
+        <span class="button__text">...</span>
+    </button>
+
+    <br /><br />
+
+    Имя блока - menu<br />
+    <div class="menu">...</div>
+    CSS<br />
+    .menu { color: red; }<br />
+    Имя элемента menu__item<br />
+    Важно! Имена одинаковых элементов одного и того же блока совпадают. Например, все пункты в блоке меню называются
+    menu__item.<br />
+    <div class="menu">
+        ...
+        <span class="menu__item"></span>
+    </div>
+    CSS<br />
+    .menu__item { color: red; }<br />
+    Имя модификатора блока<br />
+    menu_hidden<br />
+    menu_theme_islands<br />
+    <div class="menu menu_hidden">...</div>
+    <div class="menu menu_theme_islands">...</div>
+    CSS<br />
+    .menu_hidden { display: none; }<br />
+    .menu_theme_islands { color: green; }<br />
+    Имя модификатора элемента<br />
+    menu__item_visible<br />
+    menu__item_type_radio<br />
+    <div class="menu">
+        ...
+        <span class="menu__item menu__item_visible menu__item_type_radio">...</span>
+    </div>
+    CSS<br />
+    .menu__item_visible {}<br />
+    .menu__item_type_radio { color: blue; }
+
+    <br /><br />
+
+    Внешняя геометрия и позиционирование><br />
+    В CSS по БЭМ стили, отвечающие за внешнюю геометрию и позиционирование, задаются через родительский блок.<br />
+    Пример<br />
+    HTML-реализация:<br />
+    <!-- Блок `header` -->
+    <header class="header">
+        <button class="button header__button">...</button>
+    </header><br />
+    CSS-реализация кнопки:<br />
+    .button {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    }
+    <br />
+    .header__button {
+    margin: 30px;
+    position: relative;
+    }
+    <br />
+    В данном примере внешняя геометрия и позиционирование блока button задана через элемент header__button.<br />
+    Блок button не специфицирует никакие отступы и может быть легко переиспользован в любом месте.<br />
+    HTML-реализация:
+    <!-- Блок `footer` -->
+    <footer class="footer">
+        <button class="button">...</button>
+    </footer>
+
+    <br /><br />
+
+    common.blocks — общие реализации блоков для всех платформ;<br />
+    desktop.blocks — специфические реализации блоков для настольных устройств;<br />
+    mobile.blocks — специфические реализации блоков для мобильных устройств.
+    <br /><br />
+
+    Модификатор theme<br />
+    Модификатор direction отвечает за направление<br />
+    Модификатор has-tail новый элемент — «хвостик».<br />
+    Модификатор disabled<br />
+    <br />
+
+    <a href="https://css-tricks.com" class="btn">
+        <span class="btn__text">Standard button</span>
+    </a>
+    <a href="https://css-tricks.com" class="btn btn--orange btn--big">
+        <span class="btn__price">$3</span>
+        <span class="btn__text">Big button</span>
+    </a>
+    <a href="https://css-tricks.com" class="btn btn--blue btn--big">
+        <span class="btn__price">$4</span>
+        <span class="btn__text">Big button</span>
+    </a>
+    <a href="https://css-tricks.com" class="btn btn--green btn--big">
+        <span class="btn__price">$9</span>
+        <span class="btn__text">Big button</span>
+    </a>
+
+
+    <div class="accordion">
+        <div class="accordion__item">
+            <h3 class="accordion__title js-title">Real Lorem Ipsum by 37signals</h3>
+            <p class="accordion__copy accordion__copy--open js-copy">By not having the imagination to imagine what the
+                content "might" be, a design consideration is lost. Meaning becomes obfuscated because "it's just text",
+                understandability gets compromised because nobody realized that this text stuff was actually meant to be
+                read. Opportunities get lost because the lorem ipsum garbage that you used instead of real content
+                didn't suggest opportunities. The text then gets made really small, because, it's not meant to be used,
+                we might as well create loads of that lovely white space.</p>
+        </div>
+
+        <div class="accordion__item">
+            <h3 class="accordion__title js-title">A random title</h3>
+            <p class="accordion__copy js-copy">By not having the imagination to imagine what the content "might" be, a
+                design consideration is lost. Meaning becomes obfuscated because "it's just text", understandability
+                gets compromised because nobody realized that this</p>
+        </div>
+
+        <div class="accordion__item">
+            <h3 class="accordion__title js-title">A random title</h3>
+            <p class="accordion__copy js-copy">By not having the imagination to imagine what the content "might" be, a
+                design consideration is lost. Meaning becomes obfuscated because "it's just text", understandability
+                gets compromised because nobody realized that this</p>
+        </div>
+
+        <div class="accordion__item">
+            <h3 class="accordion__title js-title">A random title</h3>
+            <p class="accordion__copy js-copy">By not having the imagination to imagine what the content "might" be, a
+                design consideration is lost. Meaning becomes obfuscated because "it's just text", understandability
+                gets compromised because nobody realized that this</p>
+        </div>
+
+        <div class="accordion__item">
+            <h3 class="accordion__title js-title">A random title</h3>
+            <p class="accordion__copy js-copy">By not having the imagination to imagine what the content "might" be, a
+                design consideration is lost. Meaning becomes obfuscated because "it's just text", understandability
+                gets compromised because nobody realized that this</p>
+        </div>
+    </div>
+    <script>
+        var $title = $('.js-title');
+        var copy = '.js-copy';
+        $title.click(function () {
+            $(this).next(copy).slideToggle();
+            $(this).parent().siblings().children().next().slideUp();
+            return false;
+        });
+    </script>
+
+
+    <div class="menu cf">
+        <a href="#" class="menu__trigger js-trigger">
+            <i class="ion-navicon-round"></i>
+        </a>
+
+        <ul class="menu__row">
+            <li class="menu__list">
+                <a href="#" class="menu__link">About</a>
+            </li>
+            <li class="menu__list">
+                <a href="#" class="menu__link">Blog</a>
+            </li>
+            <li class="menu__list">
+                <a href="#" class="menu__link">Contact</a>
+            </li>
+        </ul>
+        <div class="menu__dropdown cf js-menu">
+            <div class="menu__col">
+                <h2>First Random Title</h2>
+                <p>Lorem ipsum dolor sit amet, nam in omnesque oporteat instructior, ut mea euismod maiorum omnesque. In
+                    eum mutat iriure, vel id aeque libris impedit, dicat liber duo ne. Equidem torquatos ex vix, et quo
+                    vocent mediocritatem, usu ex ubique electram conclusionemque. Mel id saepe veniam rationibus, audiam
+                    adipiscing ei ius. Quis ferri reprehendunt ex vel, ad aliquip aperiam recteque vim, ei debitis
+                    appetere signiferumque pri.</p>
+            </div>
+            <div class="menu__col">
+                <h2>Second Random Title</h2>
+                <p>
+                    <p>Lorem ipsum dolor sit amet, nam in omnesque oporteat instructior, ut mea euismod maiorum
+                        omnesque. In eum mutat iriure, vel id aeque libris impedit, dicat liber duo ne. Equidem
+                        torquatos ex vix, et quo vocent mediocritatem, usu ex ubique electram conclusionemque. Mel id
+                        saepe veniam rationibus, audiam adipiscing ei ius. Quis ferri reprehendunt ex vel, ad aliquip
+                        aperiam recteque vim, ei debitis appetere signiferumque pri.</p>
+                </p>
+            </div>
+            <div class="menu__col">
+                <h2>The third and last random title</h2>
+                <p>
+                    <p>Lorem ipsum dolor sit amet, nam in omnesque oporteat instructior, ut mea euismod maiorum
+                        omnesque. In eum mutat iriure, vel id aeque libris impedit, dicat liber duo ne. Equidem
+                        torquatos ex vix, et quo vocent mediocritatem, usu ex ubique electram conclusionemque. Mel id
+                        saepe veniam rationibus, audiam adipiscing ei ius. Quis ferri reprehendunt ex vel, ad aliquip
+                        aperiam recteque vim, ei debitis appetere signiferumque pri.</p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.js-trigger').on('click', function () {
+            $(this).toggleClass('menu__trigger--active');
+            $('.js-menu').slideToggle('fast');
+        });
+    </script>
+
+</body>
+
+</html>
