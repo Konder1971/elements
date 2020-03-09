@@ -34,9 +34,9 @@ function updateCodePreview(input) {
     
     var previewCss = JSON.stringify(styleObj, null, '\t');
     preview.innerHTML = previewCss
-        .replace(/"/g, '')
-        .replace(/,/g, ';')
-        .replace(/(align-content.*)(\n)/, '$1;\n')
+                            .replace(/"/g, '')
+                            .replace(/,/g, ';')
+                            .replace(/(align-content.*)(\n)/, '$1;\n')
 }
 
 var inputListener = function(evt) {
