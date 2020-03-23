@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .slider {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .slick-list,
+    .slick-track {
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider__item {
+      width: 100%;
+      height: 100%;
+      background-color: #ccc;
+    }
+
+    .slider__item span {
+      margin: auto;
+      height: 100%;
+      font-family: sans-serif;
+      font-size: 32px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+<script>
+  $(function () {
+  $('.slider').slick({
+    arrows: false
+  });
+  
+  $('.slider').mousewheel(function (e) {
+    if (e.deltaY !== 1) {
+      $('.slider').slick('slickNext');
+    } else {
+      $('.slider').slick('slickPrev');
+    }
+    
+    e.preventDefault();
+  });
+});
+</script>
+<section class=slider>
+  <article class=slider__item><span>1</span></article>
+  <article class=slider__item><span>2</span></article>
+  <article class=slider__item><span>3</span></article>
+  <article class=slider__item><span>4</span></article>
+</section>
+
+</body>
+</html>
